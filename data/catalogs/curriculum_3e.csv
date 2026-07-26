@@ -1,0 +1,16 @@
+class_name,series,subject,chapter,lesson,source_id,official_status,validation_status
+Troisième,,Mathématiques,Calcul algébrique,Équations du premier degré,SRC-MATH-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Mathématiques,Calcul algébrique,Racines carrées,SRC-MATH-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Mathématiques,Fonctions,Applications affines,SRC-MATH-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Mathématiques,Géométrie,Théorème de Pythagore,SRC-MATH-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Mathématiques,Géométrie,Théorème de Thalès,SRC-MATH-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Mathématiques,Statistique,Moyenne,SRC-MATH-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Physique-Chimie,Électricité,Loi d’Ohm,SRC-PC-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Physique-Chimie,Électricité,Puissance électrique,SRC-PC-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Physique-Chimie,Mécanique,Poids et masse,SRC-PC-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Physique-Chimie,Chimie,pH des solutions,SRC-PC-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,Physique-Chimie,Optique,Lentilles convergentes,SRC-PC-3E,curriculum_anchor,requires_human_curriculum_check
+Troisième,,SVT,Nutrition,Digestion,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Troisième,,SVT,Circulation,Circulation sanguine,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Troisième,,SVT,Immunité,Prévention du VIH,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Troisième,,SVT,Sols,Fertilité du sol,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "notion": "Fonctions logarithmes",
+  "class_name": "Terminale D",
+  "subject": "Mathématiques",
+  "language": "fr",
+  "curriculum_source": "https://dpfc-ci.net/dpfc/programmes/maths/14.%20Prog%20Educt%20maths%20TD%20CND%200923.pdf",
+  "primary_source": "Fomesoutra",
+  "rights": "Ressources externes référencées et consultables à leur URL Fomesoutra; synthèses pédagogiques EduLab AI dérivées sans republier les PDF complets.",
+  "exercise_sources": [
+    {"title":"Travaux dirigés Maths Fonction Logarithme Tle D","url":"https://www.fomesoutra.com/sujets/secondaire-1/terminale-1/sujets-de-terminale-d/sujets-de-mathematiques-niveau-terminale-d/devoirs-et-tp-de-mathematiques-niveau-terminale-d/22101-travaux-diriges-maths-fonction-logarithme-tle-d-by-tehua"},
+    {"title":"Fiche d'exercice Maths ln et exponentielle Tle D","url":"https://www.fomesoutra.com/sujets/secondaire-1/terminale-1/sujets-de-terminale-d/sujets-de-mathematiques-niveau-terminale-d/devoirs-et-tp-de-mathematiques-niveau-terminale-d/22090-fiche-dexercice-maths-ln-et-expo-tle-d-by-tehua"},
+    {"title":"Série d'exercices Fonctions ln Tle S","url":"https://www.fomesoutra.com/sujets/secondaire-1/terminale-1/sujets-de-terminale-d/sujets-de-mathematiques-niveau-terminale-d/devoirs-et-tp-de-mathematiques-niveau-terminale-d/21377-serie-dexercices-fonctions-ln-tle-s-by-tehua"}
+  ],
+  "lessons": [
+    {
+      "id": "math-td-ln-definition",
+      "source_title": "Cours TD Maths Tle S — Fonction logarithme népérien",
+      "source_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-d/cours-de-mathematiques-terminale-d/8756-cours-td-maths-tle-s-by-m-m-tehua/file",
+      "title": "Définition et propriétés du logarithme népérien",
+      "objective": "Déterminer le domaine de ln et transformer correctement produits, quotients et puissances.",
+      "summary": "La fonction ln est définie sur ]0,+∞[. Elle est l'unique primitive de x ↦ 1/x sur ]0,+∞[ qui vaut 0 en 1. Elle vérifie ln(ab)=ln(a)+ln(b), ln(a/b)=ln(a)-ln(b) et ln(a^n)=n ln(a), pour a,b strictement positifs. Attention: ln(a+b) ne se sépare pas.",
+      "board_demo": ["Calculer A = ln(12) - ln(3)", "A = ln(12/3)", "A = ln(4)", "A = 2 ln(2)"],
+      "exercises": [
+        {"question":"Simplifier ln(18)-ln(2).","choices":["ln(16)","ln(9)=2ln(3)","ln(36)","2ln(16)"],"correct_index":1,"hints":["Utilise ln(a)-ln(b)=ln(a/b).","Calcule 18/2."],"answer":"ln(9)=2ln(3)."},
+        {"question":"Résoudre ln(x)=0.","hints":["Cherche le nombre dont le logarithme vaut zéro."],"answer":"x=1, avec x>0."}
+      ]
+    },
+    {
+      "id": "math-td-ln-variation",
+      "source_title": "Mathématiques Terminale S — Fonction logarithme",
+      "source_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-d/cours-de-mathematiques-terminale-d/19195-cours-de-maths-tle-s-by-tehua/file",
+      "title": "Dérivée, limites et étude de la fonction ln",
+      "objective": "Étudier les variations et les limites d'une fonction contenant ln.",
+      "summary": "Pour x>0, (ln x)'=1/x>0: ln est strictement croissante. Ses limites sont -∞ quand x tend vers 0 par valeurs positives et +∞ quand x tend vers +∞. Pour une fonction u positive et dérivable, (ln u)'=u'/u.",
+      "board_demo": ["Étudier f(x)=x-ln(x), x>0", "f'(x)=1-1/x=(x-1)/x", "f'<0 sur ]0,1[ et f'>0 sur ]1,+∞[", "Minimum: f(1)=1"],
+      "exercises": [
+        {"question":"Dériver g(x)=ln(2x+3).","choices":["g'(x)=1/(2x+3)","g'(x)=2/(2x+3)","g'(x)=ln(2)","g'(x)=2ln(x+3)"],"correct_index":1,"hints":["Pose u(x)=2x+3.","Utilise (ln u)'=u'/u et précise u>0."],"answer":"g'(x)=2/(2x+3), pour x>-3/2."},
+        {"question":"Étudier le signe de ln(x).","hints":["Compare x à 1 et utilise la croissance de ln."],"answer":"ln(x)<0 sur ]0,1[, ln(1)=0 et ln(x)>0 sur ]1,+∞[."}
+      ]
+    },
+    {
+      "id": "math-td-ln-equations",
+      "source_title": "Super cours de Maths Terminale D — Fonction logarithme",
+      "source_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-d/cours-de-mathematiques-terminale-d/27564-super-cours-de-maths-tle-d-by-tehua/file",
+      "title": "Équations, inéquations et applications de ln",
+      "objective": "Résoudre des équations logarithmiques en contrôlant d'abord le domaine.",
+      "summary": "Comme ln est strictement croissante, ln(a)=ln(b) équivaut à a=b lorsque a,b>0. De même ln(a)<ln(b) équivaut à a<b. Toute résolution commence par les conditions d'existence des logarithmes; les solutions incompatibles avec ces conditions sont rejetées.",
+      "board_demo": ["Résoudre ln(x-1)+ln(x+1)=ln(8)", "Domaine: x>1", "ln((x-1)(x+1))=ln(8)", "x²-1=8, donc x=±3", "Domaine x>1: solution x=3"],
+      "exercises": [
+        {"question":"Résoudre ln(2x-1)=ln(5).","choices":["x=2","x=3","x=5","x=1/2"],"correct_index":1,"hints":["Commence par 2x-1>0.","Utilise l'injectivité de ln."],"answer":"2x-1=5, donc x=3; la condition x>1/2 est respectée."},
+        {"question":"Résoudre ln(x)>0.","hints":["ln est croissante et ln(1)=0."],"answer":"x>1."}
+      ]
+    }
+  ]
+}

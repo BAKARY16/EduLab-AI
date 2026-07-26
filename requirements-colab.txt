@@ -1,0 +1,13 @@
+torch>=2.4
+transformers==4.53.3
+datasets==4.0.0
+peft==0.16.0
+accelerate==1.9.0
+safetensors==0.5.3
+evaluate==0.4.5
+scikit-learn>=1.5,<2
+pandas>=2.2,<4
+numpy>=2,<3
+pyarrow>=18,<26
+huggingface_hub>=0.33,<1
+

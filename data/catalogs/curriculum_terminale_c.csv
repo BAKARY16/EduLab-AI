@@ -1,0 +1,12 @@
+class_name,series,subject,chapter,lesson,source_id,official_status,validation_status
+Terminale C,C,Mathématiques,Analyse,Limites,SRC-MATH-TC,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Mathématiques,Analyse,Dérivation,SRC-MATH-TC,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Mathématiques,Analyse,Fonction exponentielle,SRC-MATH-TC,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Mathématiques,Analyse,Intégrales,SRC-MATH-TC,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Mathématiques,Nombres complexes,Forme algébrique,SRC-MATH-TC,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Mathématiques,Probabilités,Loi binomiale,SRC-MATH-TC,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Physique-Chimie,Mécanique,Deuxième loi de Newton,SRC-PC-PROGR-2526,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Physique-Chimie,Mécanique,Énergie cinétique,SRC-PC-PROGR-2526,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Physique-Chimie,Électricité,Circuit RC,SRC-PC-PROGR-2526,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Physique-Chimie,Ondes,Ondes progressives,SRC-PC-PROGR-2526,curriculum_anchor,requires_human_curriculum_check
+Terminale C,C,Physique-Chimie,Chimie,Équilibre acido-basique,SRC-PC-PROGR-2526,curriculum_anchor,requires_human_curriculum_check

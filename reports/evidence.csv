@@ -1,0 +1,9 @@
+deliverable,path,command,expected,actual,status,timestamp
+teacher dataset,"data/processed/edulab_teacher_{train,validation,test}.jsonl",.venv/Scripts/python.exe scripts/validate_teacher_dataset.py,>=300 examples; no leakage,369 examples; 40 lesson groups; no leakage,PASS,2026-07-23T00:54:48.156390+00:00
+dataset tests,tests/test_dataset_schema.py; tests/test_dataset_splits.py,.venv/Scripts/python.exe -m pytest tests/test_dataset_schema.py tests/test_dataset_splits.py,tests pass,2 passed,PASS,2026-07-23T00:54:48.156390+00:00
+model artifact truthfulness,tests/test_model_loading.py,.venv/Scripts/python.exe -m pytest tests/test_model_loading.py,no partial/fake adapter,SKIP: adapter not trained; no fake weights,SKIP,2026-07-23T00:54:48.156390+00:00
+demo scope,scripts/demo_teacher_model.py,.venv/Scripts/python.exe -m pytest tests/test_teacher_generation.py,9 scenarios and all scoped classes/subjects,PASS,PASS,2026-07-23T00:54:48.156390+00:00
+exercise/question quantity,reports/dataset_statistics.json,bootstrap + validation,>=150 exercises/questions,164 exercises/questions,PASS,2026-07-23T00:54:48.156390+00:00
+robot JSON,tests/test_json_robot_output.py,.venv/Scripts/python.exe -m pytest tests/test_json_robot_output.py,>=30 valid structured outputs,41 valid JSON examples,PASS,2026-07-23T00:54:48.156390+00:00
+SciQ normalized,data/processed/sciq_normalized.parquet,python read_parquet Hugging Face convert/parquet URL,non-empty normalized public split,11679 rows; source_id=SRC-SCIQ; language=en,PASS,2026-07-23T00:54:48.156390+00:00
+local ML import,.venv,.venv/Scripts/python.exe -c import torch,PyTorch imports,FAIL: ModuleNotFoundError torchgen; reinstall timed out,FAIL,2026-07-23T00:54:48.156390+00:00

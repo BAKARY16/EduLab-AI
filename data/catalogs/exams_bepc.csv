@@ -1,0 +1,11 @@
+id,exam,year,series,subject,source_id,official_status,download_status,validation_status
+BEPC-2015-Mat,BEPC,2015,,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2016-Phy,BEPC,2016,,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2017-Mat,BEPC,2017,,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2018-Phy,BEPC,2018,,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2019-Mat,BEPC,2019,,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2020-Phy,BEPC,2020,,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2021-Mat,BEPC,2021,,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2022-Phy,BEPC,2022,,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2023-Mat,BEPC,2023,,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BEPC-2024-Phy,BEPC,2024,,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification

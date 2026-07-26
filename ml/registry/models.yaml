@@ -1,0 +1,57 @@
+models:
+  - name: deterministic-nlp-baseline
+    task: intent_and_subject_classification
+    version: 0.1.0
+    source: local_rules
+    license: project_internal
+    architecture: regex_rules
+    size_mb: 0.01
+    hardware: CPU
+    dataset: none
+    metrics: pending_benchmark
+    limits: French scientific keyword coverage only
+    status: baseline
+    path: ml/nlp/classifier.py
+    date: 2026-07-22
+  - name: scientific-qa
+    task: multiple_choice_scientific_qa
+    version: uninitialized
+    source: none
+    license: unknown
+    architecture: none
+    size_mb: 0
+    hardware: unknown
+    dataset: SciQ planned for capability evaluation only
+    metrics: not_trained
+    limits: No artifact exists
+    status: missing_artifact
+    path: ml/artifacts
+    date: 2026-07-22
+  - name: edulab-rag-tfidf
+    task: curriculum_retrieval
+    version: 0.2.0
+    source: local_validated_documents
+    license: source_dependent
+    architecture: tfidf_word_bigram_cosine
+    size_mb: 1.6
+    hardware: CPU
+    dataset: 237 validated chunks
+    metrics: reports/rag_metrics.json
+    limits: lexical baseline; six-case smoke-test only
+    status: baseline
+    path: ml/artifacts/rag_index
+    date: 2026-07-24
+  - name: edulab-teacher-qwen-0.5b-lora
+    task: pedagogical_generation
+    version: 0.1.0-proof
+    source: Qwen/Qwen2.5-0.5B-Instruct
+    license: Apache-2.0
+    architecture: causal_lm_lora
+    size_mb: 38.8
+    hardware: GPU training; CPU inference supported but slow
+    dataset: EduLab-Science synthetic curriculum-anchored 252/63/54
+    metrics: models/edulab-teacher-qwen-0.5b-lora/metrics.json
+    limits: only five training steps; pending human scientific evaluation
+    status: technical_proof_not_production
+    path: models/edulab-teacher-qwen-0.5b-lora
+    date: 2026-07-24

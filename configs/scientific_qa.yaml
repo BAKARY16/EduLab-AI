@@ -1,0 +1,5 @@
+seed: 42
+dataset: sciq
+purpose: capability_benchmark_only
+train: false
+reason: No approved training run or validated environment yet

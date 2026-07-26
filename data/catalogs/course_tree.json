@@ -1,0 +1,912 @@
+{
+  "version": "2026-07-24",
+  "scope": "EduLab exam classes",
+  "source_policy": "DPFC curriculum anchors; Fomesoutra community metadata only; no automatic redistribution",
+  "levels": [
+    {
+      "id": "troisieme",
+      "title": "Troisième",
+      "exam": "BEPC",
+      "subjects": [
+        {
+          "id": "mathematiques",
+          "title": "Mathématiques",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/3eme/mathematiques",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "calcul-algebrique",
+              "title": "Calcul algébrique",
+              "lessons": [
+                {
+                  "id": "troisieme-mathematiques-equations-du-premier-degre",
+                  "title": "Équations du premier degré",
+                  "chapter": "Calcul algébrique",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "troisieme-mathematiques-racines-carrees",
+                  "title": "Racines carrées",
+                  "chapter": "Calcul algébrique",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "fonctions",
+              "title": "Fonctions",
+              "lessons": [
+                {
+                  "id": "troisieme-mathematiques-applications-affines",
+                  "title": "Applications affines",
+                  "chapter": "Fonctions",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "geometrie",
+              "title": "Géométrie",
+              "lessons": [
+                {
+                  "id": "troisieme-mathematiques-theoreme-de-pythagore",
+                  "title": "Théorème de Pythagore",
+                  "chapter": "Géométrie",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "troisieme-mathematiques-theoreme-de-thales",
+                  "title": "Théorème de Thalès",
+                  "chapter": "Géométrie",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "statistique",
+              "title": "Statistique",
+              "lessons": [
+                {
+                  "id": "troisieme-mathematiques-moyenne",
+                  "title": "Moyenne",
+                  "chapter": "Statistique",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "physique-chimie",
+          "title": "Physique-Chimie",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/3eme/physique-chimie",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "electricite",
+              "title": "Électricité",
+              "lessons": [
+                {
+                  "id": "troisieme-physique-chimie-loi-dohm",
+                  "title": "Loi d’Ohm",
+                  "chapter": "Électricité",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "troisieme-physique-chimie-puissance-electrique",
+                  "title": "Puissance électrique",
+                  "chapter": "Électricité",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "mecanique",
+              "title": "Mécanique",
+              "lessons": [
+                {
+                  "id": "troisieme-physique-chimie-poids-et-masse",
+                  "title": "Poids et masse",
+                  "chapter": "Mécanique",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "chimie",
+              "title": "Chimie",
+              "lessons": [
+                {
+                  "id": "troisieme-physique-chimie-ph-des-solutions",
+                  "title": "pH des solutions",
+                  "chapter": "Chimie",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "optique",
+              "title": "Optique",
+              "lessons": [
+                {
+                  "id": "troisieme-physique-chimie-lentilles-convergentes",
+                  "title": "Lentilles convergentes",
+                  "chapter": "Optique",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-3E"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "svt",
+          "title": "SVT",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/3eme/svt",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "nutrition",
+              "title": "Nutrition",
+              "lessons": [
+                {
+                  "id": "troisieme-svt-digestion",
+                  "title": "Digestion",
+                  "chapter": "Nutrition",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "circulation",
+              "title": "Circulation",
+              "lessons": [
+                {
+                  "id": "troisieme-svt-circulation-sanguine",
+                  "title": "Circulation sanguine",
+                  "chapter": "Circulation",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "immunite",
+              "title": "Immunité",
+              "lessons": [
+                {
+                  "id": "troisieme-svt-prevention-du-vih",
+                  "title": "Prévention du VIH",
+                  "chapter": "Immunité",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "sols",
+              "title": "Sols",
+              "lessons": [
+                {
+                  "id": "troisieme-svt-fertilite-du-sol",
+                  "title": "Fertilité du sol",
+                  "chapter": "Sols",
+                  "class_name": "Troisième",
+                  "series": null,
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminale-c",
+      "title": "Terminale C",
+      "exam": "BAC",
+      "subjects": [
+        {
+          "id": "mathematiques",
+          "title": "Mathématiques",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-c",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "analyse",
+              "title": "Analyse",
+              "lessons": [
+                {
+                  "id": "terminale-c-mathematiques-limites",
+                  "title": "Limites",
+                  "chapter": "Analyse",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TC"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "terminale-c-mathematiques-derivation",
+                  "title": "Dérivation",
+                  "chapter": "Analyse",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TC"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "terminale-c-mathematiques-fonction-exponentielle",
+                  "title": "Fonction exponentielle",
+                  "chapter": "Analyse",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TC"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "terminale-c-mathematiques-integrales",
+                  "title": "Intégrales",
+                  "chapter": "Analyse",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TC"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "nombres-complexes",
+              "title": "Nombres complexes",
+              "lessons": [
+                {
+                  "id": "terminale-c-mathematiques-forme-algebrique",
+                  "title": "Forme algébrique",
+                  "chapter": "Nombres complexes",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TC"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "probabilites",
+              "title": "Probabilités",
+              "lessons": [
+                {
+                  "id": "terminale-c-mathematiques-loi-binomiale",
+                  "title": "Loi binomiale",
+                  "chapter": "Probabilités",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TC"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "physique-chimie",
+          "title": "Physique-Chimie",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-c",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "mecanique",
+              "title": "Mécanique",
+              "lessons": [
+                {
+                  "id": "terminale-c-physique-chimie-deuxieme-loi-de-newton",
+                  "title": "Deuxième loi de Newton",
+                  "chapter": "Mécanique",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-PROGR-2526"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "terminale-c-physique-chimie-energie-cinetique",
+                  "title": "Énergie cinétique",
+                  "chapter": "Mécanique",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-PROGR-2526"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "electricite",
+              "title": "Électricité",
+              "lessons": [
+                {
+                  "id": "terminale-c-physique-chimie-circuit-rc",
+                  "title": "Circuit RC",
+                  "chapter": "Électricité",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-PROGR-2526"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "ondes",
+              "title": "Ondes",
+              "lessons": [
+                {
+                  "id": "terminale-c-physique-chimie-ondes-progressives",
+                  "title": "Ondes progressives",
+                  "chapter": "Ondes",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-PROGR-2526"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "chimie",
+              "title": "Chimie",
+              "lessons": [
+                {
+                  "id": "terminale-c-physique-chimie-equilibre-acido-basique",
+                  "title": "Équilibre acido-basique",
+                  "chapter": "Chimie",
+                  "class_name": "Terminale C",
+                  "series": "C",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-PROGR-2526"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminale-d",
+      "title": "Terminale D",
+      "exam": "BAC",
+      "subjects": [
+        {
+          "id": "mathematiques",
+          "title": "Mathématiques",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-d",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "analyse",
+              "title": "Analyse",
+              "lessons": [
+                {
+                  "id": "terminale-d-mathematiques-continuite",
+                  "title": "Continuité",
+                  "chapter": "Analyse",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "terminale-d-mathematiques-derivation",
+                  "title": "Dérivation",
+                  "chapter": "Analyse",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "terminale-d-mathematiques-logarithme-neperien",
+                  "title": "Logarithme népérien",
+                  "chapter": "Analyse",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "probabilites",
+              "title": "Probabilités",
+              "lessons": [
+                {
+                  "id": "terminale-d-mathematiques-probabilites-conditionnelles",
+                  "title": "Probabilités conditionnelles",
+                  "chapter": "Probabilités",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TD",
+                    "FOM-PROBA-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": true
+                }
+              ]
+            },
+            {
+              "id": "suites",
+              "title": "Suites",
+              "lessons": [
+                {
+                  "id": "terminale-d-mathematiques-suites-geometriques",
+                  "title": "Suites géométriques",
+                  "chapter": "Suites",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "SRC-MATH-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "fonctions-logarithmes",
+              "title": "Fonctions logarithmes",
+              "lessons": [
+                {
+                  "id": "math-td-ln-definition",
+                  "title": "Définition et propriétés du logarithme népérien",
+                  "chapter": "Fonctions logarithmes",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "FOM-LN-COURSE-1",
+                    "FOM-LN-EXO-1"
+                  ],
+                  "official_status": "community_fomesoutra",
+                  "validation_status": "curated",
+                  "available": true
+                },
+                {
+                  "id": "math-td-ln-variation",
+                  "title": "Dérivée, limites et étude de la fonction ln",
+                  "chapter": "Fonctions logarithmes",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "FOM-LN-COURSE-2",
+                    "FOM-LN-EXO-2"
+                  ],
+                  "official_status": "community_fomesoutra",
+                  "validation_status": "curated",
+                  "available": true
+                },
+                {
+                  "id": "math-td-ln-equations",
+                  "title": "Équations, inéquations et applications de ln",
+                  "chapter": "Fonctions logarithmes",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Mathématiques",
+                  "source_ids": [
+                    "FOM-LN-COURSE-3",
+                    "FOM-LN-EXO-3"
+                  ],
+                  "official_status": "community_fomesoutra",
+                  "validation_status": "curated",
+                  "available": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "physique-chimie",
+          "title": "Physique-Chimie",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-d",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "mecanique",
+              "title": "Mécanique",
+              "lessons": [
+                {
+                  "id": "terminale-d-physique-chimie-travail-dune-force",
+                  "title": "Travail d’une force",
+                  "chapter": "Mécanique",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "electricite",
+              "title": "Électricité",
+              "lessons": [
+                {
+                  "id": "terminale-d-physique-chimie-condensateur",
+                  "title": "Condensateur",
+                  "chapter": "Électricité",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "chimie",
+              "title": "Chimie",
+              "lessons": [
+                {
+                  "id": "terminale-d-physique-chimie-cinetique-chimique",
+                  "title": "Cinétique chimique",
+                  "chapter": "Chimie",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-TD",
+                    "FOM-CHIMIE-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": true
+                },
+                {
+                  "id": "terminale-d-physique-chimie-dosage-acido-basique",
+                  "title": "Dosage acido-basique",
+                  "chapter": "Chimie",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [
+                    "SRC-PC-TD",
+                    "FOM-CHIMIE-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": true
+                },
+                {
+                  "id": "terminale-d-physique-chimie-les-alcools",
+                  "title": "Les alcools",
+                  "chapter": "Chimie",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "Physique-Chimie",
+                  "source_ids": [],
+                  "official_status": "ai_generated",
+                  "validation_status": "pending",
+                  "available": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "svt",
+          "title": "SVT",
+          "folder_url": "https://www.fomesoutra.com/cours/secondaire/terminale/terminale-d",
+          "source_status": "community_metadata_only",
+          "chapters": [
+            {
+              "id": "genetique",
+              "title": "Génétique",
+              "lessons": [
+                {
+                  "id": "terminale-d-svt-expression-de-linformation-genetique",
+                  "title": "Expression de l’information génétique",
+                  "chapter": "Génétique",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                },
+                {
+                  "id": "terminale-d-svt-brassage-genetique",
+                  "title": "Brassage génétique",
+                  "chapter": "Génétique",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "immunologie",
+              "title": "Immunologie",
+              "lessons": [
+                {
+                  "id": "terminale-d-svt-reponse-immunitaire-adaptative",
+                  "title": "Réponse immunitaire adaptative",
+                  "chapter": "Immunologie",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "neurophysiologie",
+              "title": "Neurophysiologie",
+              "lessons": [
+                {
+                  "id": "terminale-d-svt-message-nerveux",
+                  "title": "Message nerveux",
+                  "chapter": "Neurophysiologie",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "reproduction",
+              "title": "Reproduction",
+              "lessons": [
+                {
+                  "id": "terminale-d-svt-regulation-hormonale",
+                  "title": "Régulation hormonale",
+                  "chapter": "Reproduction",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            },
+            {
+              "id": "geologie",
+              "title": "Géologie",
+              "lessons": [
+                {
+                  "id": "terminale-d-svt-tectonique-des-plaques",
+                  "title": "Tectonique des plaques",
+                  "chapter": "Géologie",
+                  "class_name": "Terminale D",
+                  "series": "D",
+                  "subject": "SVT",
+                  "source_ids": [
+                    "SRC-DPFC-PROG"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
+                  "available": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

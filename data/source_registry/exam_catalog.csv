@@ -1,0 +1,5 @@
+exam,year,series,zone,subject,source_name,source_url,official_status,correction_status,accessibility_status,download_status,local_path,validation_status
+BEPC,2015,,Côte d'Ivoire,Mathématiques,Fomesoutra Banque BEPC,https://www.fomesoutra.com/sujets-du-secondaire/troisieme/banque-de-sujets-du-bepc-cote-divoire,community,unverified,requires_manual_review,metadata_only,,pending
+BEPC,2015,,Côte d'Ivoire,Physique-Chimie,Fomesoutra Physique-Chimie BEPC,https://www.fomesoutra.com/sujets/secondaire-1/troisieme/sujets-de-physique-chimie-3eme/anciens-sujets-de-physique-chimie-du-bepc,community,unverified,requires_manual_review,metadata_only,,pending
+BEPC,2026,,Côte d'Ivoire,Toutes,DECO BEPC,https://www.men-deco.org/examens-scolaires/bepc,official_information,unknown,verification_page,metadata_only,,pending
+BAC,2026,A-C-D,Côte d'Ivoire,Toutes,DECO BAC,https://www.men-deco.org/examens-scolaires/bac,official_information,unknown,verification_page,metadata_only,,pending

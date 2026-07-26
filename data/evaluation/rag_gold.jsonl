@@ -1,0 +1,6 @@
+{"id":"rag-ohm-3e","query":"Quelle est la loi d'Ohm et sa formule ?","subject":"Physique-Chimie","academic_class":"Troisième","expected_terms":["ohm","tension","intensité"],"expected_lesson":"conducteur ohmique"}
+{"id":"rag-lentilles-3e","query":"Comment fonctionne une lentille convergente ?","subject":"Physique-Chimie","academic_class":"Troisième","expected_terms":["lentille","foyer"],"expected_lesson":"lentilles"}
+{"id":"rag-circuit-6e","query":"Quels sont les éléments d'un circuit électrique ?","subject":"Physique-Chimie","academic_class":"Sixième","expected_terms":["circuit","électrique"],"expected_lesson":"circuit électrique"}
+{"id":"rag-masse-poids-3e","query":"Quelle différence entre masse et poids ?","subject":"Physique-Chimie","academic_class":"Troisième","expected_terms":["masse","poids"],"expected_lesson":"masse et poids"}
+{"id":"rag-acide-base-3e","query":"Comment mesurer le pH d'une solution aqueuse ?","subject":"Physique-Chimie","academic_class":"Troisième","expected_terms":["ph","solution"],"expected_lesson":"acide"}
+{"id":"rag-air-4e","query":"Quels gaz constituent l'air ?","subject":"Physique-Chimie","academic_class":"Quatrième","expected_terms":["air","dioxygène"],"expected_lesson":"constituants de l’air"}

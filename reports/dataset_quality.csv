@@ -1,0 +1,11 @@
+metric,value,status
+total,369,PASS
+splits,"{""train"": 252, ""validation"": 63, ""test"": 54}",PASS
+synthetic,369,PASS
+lessons,40,PASS
+exercises_or_questions,164,PASS
+detailed_corrections,41,PASS
+by_class,"{""Troisième"": 135, ""Terminale D"": 135, ""Terminale C"": 99}",PASS
+by_subject,"{""Physique-Chimie"": 126, ""Mathématiques"": 153, ""SVT"": 90}",PASS
+by_task,"{""exam_tip"": 41, ""exercise"": 41, ""quiz"": 123, ""summary"": 41, ""course_plan"": 41, ""correction"": 41, ""explain"": 41}",PASS
+duplicate_ids,0,PASS

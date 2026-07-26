@@ -1,0 +1,16 @@
+class_name,series,subject,chapter,lesson,source_id,official_status,validation_status
+Terminale D,D,Mathématiques,Analyse,Continuité,SRC-MATH-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Mathématiques,Analyse,Dérivation,SRC-MATH-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Mathématiques,Analyse,Logarithme népérien,SRC-MATH-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Mathématiques,Probabilités,Probabilités conditionnelles,SRC-MATH-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Mathématiques,Suites,Suites géométriques,SRC-MATH-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Physique-Chimie,Mécanique,Travail d’une force,SRC-PC-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Physique-Chimie,Électricité,Condensateur,SRC-PC-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Physique-Chimie,Chimie,Cinétique chimique,SRC-PC-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,Physique-Chimie,Chimie,Dosage acido-basique,SRC-PC-TD,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,SVT,Génétique,Expression de l’information génétique,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,SVT,Génétique,Brassage génétique,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,SVT,Immunologie,Réponse immunitaire adaptative,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,SVT,Neurophysiologie,Message nerveux,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,SVT,Reproduction,Régulation hormonale,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check
+Terminale D,D,SVT,Géologie,Tectonique des plaques,SRC-DPFC-PROG,curriculum_anchor,requires_human_curriculum_check

@@ -1,0 +1,11 @@
+id,exam,year,series,subject,source_id,official_status,download_status,validation_status
+BAC-2015-Mat,BAC,2015,C/D,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2016-Phy,BAC,2016,C/D,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2017-SVT,BAC,2017,C/D,SVT,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2018-Mat,BAC,2018,C/D,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2019-Phy,BAC,2019,C/D,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2020-SVT,BAC,2020,C/D,SVT,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2021-Mat,BAC,2021,C/D,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2022-Phy,BAC,2022,C/D,Physique-Chimie,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2023-SVT,BAC,2023,C/D,SVT,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification
+BAC-2024-Mat,BAC,2024,C/D,Mathématiques,SRC-FOMESOUTRA,sujet_attribué_non_vérifié,non_collecté,pending_human_verification

@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: edulab
+      POSTGRES_USER: edulab
+      POSTGRES_PASSWORD: edulab_dev_only
+    ports: ["5432:5432"]
+    volumes: ["edulab_postgres:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U edulab"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    env_file: [.env.local]
+    environment:
+      DATABASE_URL: postgresql://edulab:edulab_dev_only@postgres:5432/edulab
+      TEACHER_MODEL_URL: http://teacher-model:8010
+    ports: ["8000:8000"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      teacher-model:
+        condition: service_healthy
+  teacher-model:
+    build:
+      context: .
+      dockerfile: ml/teacher/Dockerfile
+    environment:
+      EDULAB_ROOT: /workspace
+      HF_HOME: /workspace/.hf-cache
+    ports: ["8010:8010"]
+    volumes:
+      - ./models:/workspace/models
+      - hf_cache:/workspace/.hf-cache
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8010/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 120s
+volumes:
+  edulab_postgres:
+  hf_cache:

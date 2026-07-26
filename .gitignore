@@ -1,0 +1,43 @@
+# Secrets and local configuration
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+coverage/
+output/
+publish/
+*.tsbuildinfo
+*.log
+
+# Local tools and operating systems
+.venv/
+__pycache__/
+.pytest_cache/
+.agents/
+.claude/
+.DS_Store
+Thumbs.db
+
+# Uploaded or generated private data
+data/raw/manual_uploads/*
+!data/raw/manual_uploads/.gitkeep
+ml/artifacts/*
+!ml/artifacts/.gitkeep
+
+# Régénérables via scripts/build_rag_index.py (extraction + index RAG)
+data/extracted/*
+!data/extracted/.gitkeep
+data/processed/*.json
+
+# Index dense régénérable via scripts/build_faiss_index.py
+ml/artifacts/faiss_index/
+
+# Local model exports and large generated datasets
+models/
+data/processed/*.parquet

@@ -1,0 +1,99 @@
+checked_at: 2026-07-22
+policy: "Metadata first; no bulk download; validation required before learner delivery."
+sources:
+  - name: DPFC Programmes du secondaire
+    url: https://dpfc-ci.net/?page_id=283
+    type: official_curriculum
+    authority: DPFC
+    priority: highest
+    allowed_ingestion_mode: manual_or_single_document
+    manual_download_required: true
+    authentication_required: false
+    terms_review_status: pending
+    robots_review_status: pending
+    reliability: institutional_primary
+    notes: Programmes et guides par classe, matière et série.
+  - name: DPFC Progressions du secondaire
+    url: https://dpfc-ci.net/?page_id=5267
+    type: official_progression
+    authority: DPFC
+    priority: highest
+    allowed_ingestion_mode: metadata_only
+    manual_download_required: true
+    authentication_required: false
+    terms_review_status: pending
+    robots_review_status: pending
+    reliability: institutional_primary
+    notes: Progressions 2025-2026 publiées par discipline.
+  - name: Mon Ecole à la Maison
+    url: https://ecole-ci.org/
+    type: official_lessons
+    authority: MENA
+    priority: highest
+    allowed_ingestion_mode: metadata_only
+    manual_download_required: true
+    authentication_required: unknown
+    terms_review_status: pending
+    robots_review_status: pending
+    reliability: institutional_primary
+    notes: Environ 7000 fiches annoncées par le MENA; pas de collecte automatique autorisée par défaut.
+  - name: Présentation MENA Mon Ecole à la Maison
+    url: https://www.education.gouv.ci/index.php/Activite/details/382
+    type: official_information
+    authority: MENA
+    priority: high
+    allowed_ingestion_mode: metadata_only
+    manual_download_required: false
+    authentication_required: false
+    terms_review_status: pending
+    robots_review_status: pending
+    reliability: institutional_primary
+    notes: Présentation institutionnelle, pas un corpus de cours.
+  - name: Fomesoutra Banque BEPC
+    url: https://www.fomesoutra.com/sujets-du-secondaire/troisieme/banque-de-sujets-du-bepc-cote-divoire
+    type: exam_repository
+    authority: community
+    priority: medium
+    allowed_ingestion_mode: metadata_only
+    manual_download_required: true
+    authentication_required: false
+    terms_review_status: required
+    robots_review_status: pending
+    reliability: community_unverified
+    notes: Ne jamais étiqueter les corrections comme officielles sans preuve DECO.
+  - name: Fomesoutra Physique-Chimie BEPC
+    url: https://www.fomesoutra.com/sujets/secondaire-1/troisieme/sujets-de-physique-chimie-3eme/anciens-sujets-de-physique-chimie-du-bepc
+    type: exam_repository
+    authority: community
+    priority: medium
+    allowed_ingestion_mode: metadata_only
+    manual_download_required: true
+    authentication_required: false
+    terms_review_status: required
+    robots_review_status: pending
+    reliability: community_unverified
+    notes: Inventaire seulement jusqu'à validation des droits et de la provenance.
+  - name: DECO BEPC
+    url: https://www.men-deco.org/examens-scolaires/bepc
+    type: official_exam_information
+    authority: DECO
+    priority: high
+    allowed_ingestion_mode: metadata_only
+    manual_download_required: true
+    authentication_required: protected_page
+    terms_review_status: pending
+    robots_review_status: blocked_by_verification_page
+    reliability: institutional_primary
+    notes: La page déclenche une vérification; aucun contournement effectué.
+  - name: DECO BAC
+    url: https://www.men-deco.org/examens-scolaires/bac
+    type: official_exam_information
+    authority: DECO
+    priority: high
+    allowed_ingestion_mode: metadata_only
+    manual_download_required: true
+    authentication_required: protected_page
+    terms_review_status: pending
+    robots_review_status: blocked_by_verification_page
+    reliability: institutional_primary
+    notes: La page déclenche une vérification; aucun contournement effectué.

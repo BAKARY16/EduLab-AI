@@ -1,0 +1,125 @@
+CHAPITRE : PROBABILITÉS — Terminale D
+
+LEÇON 1 : Vocabulaire et probabilité d'un événement
+
+Une expérience est dite aléatoire lorsqu'on connaît à l'avance tous les résultats possibles, sans pouvoir prédire lequel se produira. L'ensemble de tous les résultats possibles s'appelle l'univers, noté Ω. Toute partie de Ω est un événement. Un événement réduit à un seul résultat est un événement élémentaire. L'événement vide (aucune issue) a pour cardinal 0 ; l'univers lui-même est appelé événement certain.
+
+Pour deux événements A et B :
+- A ∩ B (intersection) rassemble les issues communes à A et à B.
+- A ∪ B (union) rassemble les issues qui appartiennent à A, à B, ou aux deux.
+- A et B sont incompatibles si A ∩ B = ∅ (aucune issue commune).
+- L'événement contraire de A, noté Ā, regroupe toutes les issues qui ne sont pas dans A ; on a toujours A ∪ Ā = Ω et A ∩ Ā = ∅.
+
+La probabilité d'un événement A, notée P(A), est un nombre réel compris entre 0 et 1 : P(∅) = 0 et P(Ω) = 1. Plus P(A) est proche de 1, plus A a de chances de se réaliser.
+
+Lorsque tous les événements élémentaires ont la même chance de se produire (équiprobabilité), on calcule une probabilité par :
+
+P(A) = (nombre d'issues favorables à A) / (nombre total d'issues possibles) = card(A) / card(Ω)
+
+Exemple : Un sac contient 10 jetons numérotés de 1 à 10. On tire un jeton au hasard. Soit A l'événement « obtenir un multiple de 3 ». Les issues favorables sont 3, 6 et 9, donc card(A) = 3 et card(Ω) = 10. On a P(A) = 3/10 = 0,3, soit 30 % de chances.
+
+Propriété de l'événement contraire : P(A) + P(Ā) = 1, donc P(Ā) = 1 − P(A).
+
+Exemple : Dans un lot d'ampoules, la probabilité qu'une ampoule tirée au hasard soit défectueuse est 0,04. La probabilité qu'elle soit correcte est donc 1 − 0,04 = 0,96, soit 96 %.
+
+Pour deux événements A et B quelconques : P(A ∪ B) = P(A) + P(B) − P(A ∩ B).
+Si A et B sont incompatibles, cette formule se simplifie car P(A ∩ B) = 0, donc P(A ∪ B) = P(A) + P(B).
+
+Exemple : On tire une carte dans un jeu de 32 cartes. Soit V l'événement « obtenir un valet » (P(V) = 4/32) et C l'événement « obtenir un cœur » (P(C) = 8/32). L'intersection « valet de cœur » a pour probabilité 1/32. Donc P(V ∪ C) = 4/32 + 8/32 − 1/32 = 11/32.
+
+
+LEÇON 2 : Probabilité conditionnelle, indépendance et probabilités totales
+
+La probabilité conditionnelle de B sachant A, notée P_A(B) (on écrit parfois P(B|A)), mesure la probabilité que B se réalise lorsqu'on sait déjà que A s'est réalisé. Elle se calcule, pour P(A) ≠ 0, par :
+
+P_A(B) = P(A ∩ B) / P(A)
+
+On en déduit la formule des probabilités composées : P(A ∩ B) = P(A) × P_A(B).
+
+Méthode : On tire une carte dans un jeu de 32 cartes. Soit A « la carte est un pique » et B « la carte est une dame ». On veut P_A(B), la probabilité d'avoir une dame sachant qu'on a tiré un pique.
+P(A) = 8/32 = 1/4 et P(A ∩ B) = 1/32 (la dame de pique).
+P_A(B) = (1/32) / (1/4) = 1/8.
+On retrouve ce résultat directement : parmi les 8 piques, une seule est une dame, donc 1 chance sur 8.
+
+Probabilités conditionnelles avec un tableau : lorsqu'une enquête croise deux caractères dans un tableau à double entrée, P_A(B) s'obtient en ne regardant que la ligne (ou la colonne) correspondant à A, puis en divisant l'effectif de la case (A et B) par le total de cette ligne.
+
+Exemple : Dans un lycée de 500 élèves, 280 pratiquent un sport (S) et parmi eux 165 ont la moyenne (M) ; parmi les 220 élèves qui ne pratiquent pas de sport, 110 ont la moyenne. On choisit un élève sportif au hasard : la probabilité qu'il ait la moyenne est P_S(M) = 165/280 ≈ 0,59, soit environ 59 %.
+
+Probabilités conditionnelles avec un arbre pondéré : chaque branche du premier niveau porte une probabilité simple ; chaque branche du second niveau porte une probabilité conditionnelle sachant l'événement du premier niveau. Le produit des probabilités le long d'un chemin donne la probabilité de l'intersection correspondante.
+
+Exemple : Une urne contient 4 boules vertes et 6 boules jaunes. On tire successivement deux boules sans remise. Notons V1 « la première boule est verte ». Après ce tirage, il reste 9 boules dont 3 vertes, donc P_V1(V2) = 3/9 = 1/3. La probabilité de tirer deux boules vertes est P(V1 ∩ V2) = P(V1) × P_V1(V2) = (4/10) × (1/3) = 4/30 = 2/15.
+
+Indépendance : deux événements A et B sont indépendants lorsque la réalisation de l'un ne modifie pas la probabilité de l'autre, ce qui se traduit par :
+
+P(A ∩ B) = P(A) × P(B), ou de manière équivalente P_A(B) = P(B).
+
+Attention à ne pas confondre indépendance et incompatibilité : deux événements incompatibles de probabilités non nulles ne sont jamais indépendants, puisque P(A ∩ B) = 0 alors que P(A) × P(B) ≠ 0.
+
+Exemple : Dans une usine, une pièce présente un défaut de type X avec une probabilité de 0,02 et un défaut de type Y avec une probabilité de 0,03, ces deux défauts étant indépendants. La probabilité qu'une pièce ait au moins un des deux défauts est :
+P(X ∪ Y) = P(X) + P(Y) − P(X) × P(Y) = 0,02 + 0,03 − 0,0006 = 0,0494, soit environ 4,94 %.
+
+Formule des probabilités totales : si A₁, A₂, …, Aₙ forment une partition de l'univers (chaque issue appartient à un seul des Aᵢ), alors pour tout événement B :
+
+P(B) = P(A₁) × P_A₁(B) + P(A₂) × P_A₂(B) + … + P(Aₙ) × P_Aₙ(B)
+
+Dans le cas particulier d'une partition en deux événements A et Ā :
+P(B) = P(A) × P_A(B) + P(Ā) × P_Ā(B)
+
+Exemple (test de dépistage) : Dans un élevage, 3 % des animaux sont porteurs d'une maladie M. Un test est positif dans 90 % des cas chez un animal porteur, et négatif dans 97 % des cas chez un animal sain. Quelle est la probabilité qu'un animal pris au hasard ait un test positif T ?
+P(T) = P(M) × P_M(T) + P(M̄) × P_M̄(T) = 0,03 × 0,90 + 0,97 × 0,03 = 0,027 + 0,0291 = 0,0561, soit environ 5,6 %.
+On peut ensuite en déduire, avec la formule de la probabilité conditionnelle, la probabilité qu'un animal soit réellement malade sachant que son test est positif : P_T(M) = P(M ∩ T)/P(T) = 0,027/0,0561 ≈ 0,48, soit environ 48 % — un résultat qui montre qu'un test positif isolé ne suffit pas à conclure avec certitude.
+
+
+LEÇON 3 : Variable aléatoire, loi de probabilité, espérance, variance, écart-type
+
+Une variable aléatoire X associe un nombre réel à chaque issue d'une expérience aléatoire. La loi de probabilité de X, souvent présentée sous forme de tableau, donne P(X = xᵢ) pour chaque valeur xᵢ prise par X ; la somme de ces probabilités vaut toujours 1.
+
+Exemple : Un jeu consiste à lancer un dé équilibré à six faces. Si le résultat est 6, on gagne 10 points ; si le résultat est impair, on perd 2 points ; sinon (2 ou 4) on gagne 3 points. Soit X le gain.
+P(X = 10) = 1/6 (obtenir 6), P(X = −2) = 3/6 = 1/2 (obtenir 1, 3 ou 5), P(X = 3) = 2/6 = 1/3 (obtenir 2 ou 4).
+Vérification : 1/6 + 1/2 + 1/3 = 1.
+
+La fonction de répartition F associe à tout réel x la probabilité que X prenne une valeur inférieure ou égale à x : F(x) = P(X ≤ x). Pour une variable aléatoire discrète, sa représentation graphique est une fonction en escalier, chaque marche correspondant à une valeur possible de X.
+
+L'espérance E(X), la variance V(X) et l'écart-type σ(X) résument respectivement la valeur moyenne et la dispersion de X autour de cette moyenne :
+
+E(X) = p₁x₁ + p₂x₂ + … + pₙxₙ
+V(X) = p₁(x₁ − E(X))² + p₂(x₂ − E(X))² + … + pₙ(xₙ − E(X))²
+σ(X) = √V(X)
+
+Propriétés de linéarité, pour a et b réels : E(aX + b) = a·E(X) + b et V(aX + b) = a²·V(X).
+
+Exemple : Reprenons le jeu ci-dessus.
+E(X) = (1/6)×10 + (1/2)×(−2) + (1/3)×3 = 10/6 − 1 + 1 = 10/6 ≈ 1,67.
+En moyenne, un joueur gagne environ 1,67 point par partie ; si l'organisateur fait payer 2 points la participation, il réalise un bénéfice moyen d'environ 0,33 point par partie.
+
+
+LEÇON 4 : Épreuve de Bernoulli et loi binomiale
+
+Une épreuve de Bernoulli est une expérience aléatoire à deux issues possibles, appelées classiquement « succès » (probabilité p) et « échec » (probabilité 1 − p, souvent notée q). Lorsqu'on répète n fois, de façon indépendante, la même épreuve de Bernoulli de paramètre p, le nombre X de succès obtenus suit une loi binomiale de paramètres n et p, notée B(n, p) :
+
+P(X = k) = C(n,k) × pᵏ × (1 − p)ⁿ⁻ᵏ, pour k ∈ {0, 1, …, n}
+
+où C(n,k) désigne le nombre de combinaisons de k éléments parmi n. Pour cette loi : E(X) = np, V(X) = np(1 − p) et σ(X) = √(np(1 − p)).
+
+Exemple : On sait que 20 % des plants d'un champ de coton sont attaqués par un parasite. On prélève 5 plants au hasard, de façon indépendante (grand champ). Soit X le nombre de plants attaqués parmi les 5 : X suit la loi B(5 ; 0,2).
+Probabilité qu'aucun plant ne soit attaqué : P(X = 0) = C(5,0) × 0,2⁰ × 0,8⁵ = 0,8⁵ ≈ 0,328, soit environ 32,8 %.
+Probabilité qu'exactement 2 plants soient attaqués : P(X = 2) = C(5,2) × 0,2² × 0,8³ = 10 × 0,04 × 0,512 ≈ 0,205, soit environ 20,5 %.
+Nombre moyen de plants attaqués sur 5 : E(X) = 5 × 0,2 = 1.
+
+Un arbre pondéré à n niveaux (un niveau par épreuve) permet de retrouver ces résultats : chaque chemin menant à exactement k succès a la même probabilité pᵏ(1−p)ⁿ⁻ᵏ, et il y a C(n,k) chemins de ce type, ce qui redonne bien la formule de la loi binomiale.
+
+
+Exercices d'application
+
+1) Une entreprise fabrique des pièces mécaniques. 5 % des pièces produites présentent un défaut. On prélève une pièce au hasard.
+   a) Quelle est la probabilité qu'elle soit correcte ?
+   b) On prélève 4 pièces de façon indépendante. Quelle est la probabilité qu'exactement une pièce soit défectueuse ?
+
+2) Dans une classe de Terminale D de 40 élèves, 25 étudient l'espagnol (E) et 18 étudient l'allemand (A) ; 10 élèves étudient les deux langues. On choisit un élève au hasard.
+   a) Calculer P(E), P(A) et P(E ∩ A).
+   b) En déduire P(E ∪ A), puis la probabilité qu'un élève n'étudie aucune des deux langues.
+   c) Un élève choisi étudie l'espagnol ; quelle est la probabilité qu'il étudie aussi l'allemand ?
+
+3) Un test médical est positif chez 95 % des personnes malades et négatif chez 92 % des personnes saines. Dans la population testée, 1 % des personnes sont malades.
+   a) Calculer la probabilité qu'une personne prise au hasard ait un test positif.
+   b) Sachant que le test d'une personne est positif, quelle est la probabilité qu'elle soit réellement malade ? Commenter le résultat.

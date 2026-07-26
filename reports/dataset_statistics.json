@@ -1,0 +1,32 @@
+{
+  "total": 369,
+  "splits": {
+    "train": 252,
+    "validation": 63,
+    "test": 54
+  },
+  "synthetic": 369,
+  "lessons": 40,
+  "exercises_or_questions": 164,
+  "detailed_corrections": 41,
+  "by_class": {
+    "Troisième": 135,
+    "Terminale D": 135,
+    "Terminale C": 99
+  },
+  "by_subject": {
+    "Physique-Chimie": 126,
+    "Mathématiques": 153,
+    "SVT": 90
+  },
+  "by_task": {
+    "exam_tip": 41,
+    "exercise": 41,
+    "quiz": 123,
+    "summary": 41,
+    "course_plan": 41,
+    "correction": 41,
+    "explain": 41
+  },
+  "duplicate_ids": 0
+}

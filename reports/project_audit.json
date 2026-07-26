@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "checks": {
+    "utf8_integrity": {
+      "passed": true,
+      "findings": []
+    },
+    "exact_duplicates": {
+      "groups": []
+    },
+    "dataset_splits": {
+      "train": 252,
+      "validation": 63,
+      "test": 54
+    }
+  },
+  "storage": {
+    "generated_directories_present": {
+      ".next": true,
+      ".venv": true,
+      "node_modules": true,
+      ".pytest_cache": true
+    },
+    "tracked_candidate_bytes_by_suffix": {
+      ".json": 14995400,
+      ".pdf": 7025085,
+      ".parquet": 3770521,
+      ".png": 3665940,
+      ".safetensors": 2187608,
+      ".txt": 1672650,
+      ".pkl": 1191907,
+      ".jsonl": 379169,
+      ".tsbuildinfo": 358377,
+      ".tsx": 244986,
+      ".py": 145553,
+      ".mp3": 124595,
+      ".ts": 55178,
+      ".sqlite3": 53248,
+      ".md": 52079,
+      ".csv": 23125,
+      ".sql": 14999,
+      ".ipynb": 12043,
+      ".mjs": 10853,
+      ".html": 8152,
+      ".css": 6891,
+      ".yaml": 6057,
+      ".log": 4294,
+      ".jinja": 2507,
+      ".example": 1992,
+      ".local": 1806,
+      "[none]": 1607,
+      ".yml": 1301,
+      ".ps1": 789,
+      ".lock": 91
+    }
+  }
+}

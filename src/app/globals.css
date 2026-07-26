@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+/* ============================================================
+   EduLab AI — Design System
+   Palette académique sobre : fond crème, verts forêt profonds,
+   accents orange doux et doré — calme, professionnel, éducatif.
+   ============================================================ */
+
+@theme {
+  --color-night-950: #132a21;
+  --color-night-900: #1b3a2d;
+  --color-night-800: #27503f;
+  --color-night-700: #336753;
+  --color-night-600: #427e66;
+
+  --color-sky-edu: #1f6b4e;
+  --color-sky-edu-light: #2e8563;
+
+  --color-turq: #2e7d5b;
+  --color-turq-light: #3e9873;
+
+  --color-violet-edu: #a98038;
+  --color-violet-edu-light: #c29b56;
+
+  --color-leaf: #3e9b6b;
+  --color-leaf-light: #5fb88a;
+
+  --color-amber-edu: #d9822b;
+  --color-amber-edu-light: #e8a34f;
+
+  --color-ed-ink: #132a21;
+  --color-ed-surface: #1b3a2d;
+  --color-ed-elevated: #27503f;
+  --color-ed-line: #3c6858;
+  --color-ed-accent: #4ed0a0;
+  --color-ed-violet: #e5b56e;
+  --color-ed-blue: #65c9bd;
+  --color-ed-orange: #f19a4b;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --bg: #f6f4ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: #182e24;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus accessibility */
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #2e7d5b;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b7c8bb transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #b7c8bb;
+  border-radius: 999px;
+}
+
+/* ============================================================
+   Animations utilitaires
+   ============================================================ */
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-float-up {
+  animation: floatUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(62, 152, 115, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(62, 152, 115, 0);
+  }
+}
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes waveArm {
+  0%,
+  100% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(18deg);
+  }
+}
+.animate-wave {
+  transform-origin: bottom center;
+  animation: waveArm 1.1s ease-in-out infinite;
+}
+
+@keyframes thinkDots {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes marqueeSlow {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marqueeSlow 32s linear infinite;
+}
+
+.landing-grid {
+  background-image: linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.landing-nav-link {
+  position: relative;
+  padding-block: 0.5rem;
+  transition: color 180ms ease;
+}
+.landing-nav-link:hover { color: white; }
+.landing-nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background: #3e9873;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 200ms ease;
+}
+.landing-nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+@keyframes landingMarquee {
+  to { transform: translateX(-50%); }
+}
+.landing-marquee { animation: landingMarquee 24s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-marquee, .animate-bob, .animate-marquee, .animate-pulse-glow,
+  .bot-idle, .bot-talk-nod, .bot-sway { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spinSlow 1.1s linear infinite;
+}
+
+@keyframes floatBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-bob {
+  animation: floatBob 3.5s ease-in-out infinite;
+}
+
+/* Robot Professeur — vie continue */
+@keyframes botIdle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(0.6deg);
+  }
+}
+.bot-idle {
+  animation: botIdle 3.6s ease-in-out infinite;
+  transform-origin: 50% 85%;
+}
+@keyframes botTalkNod {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.6px);
+  }
+}
+.bot-talk-nod {
+  animation: botTalkNod 0.42s ease-in-out infinite;
+  transform-origin: 50% 60%;
+}
+@keyframes botSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+.bot-sway {
+  animation: botSway 2.6s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(100deg, #5fb88a 0%, #3e9873 50%, #2e8563 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+/* Code/formula block */
+.formula {
+  font-family: "Georgia", "Cambria", "Times New Roman", serif;
+  font-style: italic;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: #dfe6dc;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2e7d5b;
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(19, 42, 33, 0.25);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2e7d5b;
+  cursor: pointer;
+  border: 3px solid #fff;
+}

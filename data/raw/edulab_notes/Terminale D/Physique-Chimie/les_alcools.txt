@@ -1,0 +1,83 @@
+CHAPITRE : LES ALCOOLS — Terminale D
+
+LEÇON 1 : Généralités sur les alcools
+
+Un alcool est un composé organique dont la molécule porte un groupe hydroxyle —OH fixé sur un atome de carbone saturé (tétraédrique). Pour une chaîne carbonée saturée, la formule générale s'écrit CnH2n+1—OH, souvent notée R—OH, où R représente un groupe alkyle.
+
+Nomenclature : le nom d'un alcool s'obtient à partir du nom de l'alcane de même chaîne carbonée, en remplaçant le « e » final par le suffixe « -ol », précédé de l'indice de position du carbone porteur du groupe —OH. Cet indice doit être le plus petit possible : on numérote donc la chaîne principale dans le sens qui donne la position la plus basse à la fonction alcool.
+Exemples de noms : propan-1-ol (OH sur le carbone 1 d'une chaîne à 3 carbones), butan-2-ol (OH sur le carbone 2 d'une chaîne à 4 carbones).
+
+Les trois classes d'alcools se distinguent par le nombre d'atomes de carbone directement liés au carbone fonctionnel (celui qui porte le —OH) :
+- Alcool primaire : le carbone fonctionnel est lié à un seul autre atome de carbone (ou à aucun, cas du méthanol).
+- Alcool secondaire : le carbone fonctionnel est lié à deux autres atomes de carbone.
+- Alcool tertiaire : le carbone fonctionnel est lié à trois autres atomes de carbone.
+
+Cette classe détermine directement le comportement chimique de l'alcool, en particulier lors de son oxydation (voir Leçon 3).
+
+Un polyol (ou polyalcool) est une molécule portant plusieurs groupes —OH sur des carbones différents. L'éthan-1,2-diol (glycol) en porte deux ; le propan-1,2,3-triol (glycérol) en porte trois. Ces composés sont utilisés notamment comme liquides antigel ou en cosmétique.
+
+
+LEÇON 2 : Préparation des alcools
+
+Deux voies principales permettent d'obtenir des alcools au laboratoire ou dans l'industrie.
+
+1) Fermentation alcoolique : certains sucres fermentescibles (glucose, fructose) sont transformés en éthanol et en dioxyde de carbone sous l'action d'enzymes (levures). C'est la voie utilisée historiquement pour produire l'éthanol des boissons fermentées et, plus largement, dans l'industrie agroalimentaire.
+
+2) Hydratation des alcènes : en présence d'un catalyseur acide (acide sulfurique ou acide phosphorique) et sous l'effet de la température, une molécule d'eau s'additionne sur la double liaison C=C d'un alcène pour donner un alcool. Lorsque l'alcène est dissymétrique (les deux carbones de la double liaison ne portent pas le même nombre de substituants), la réaction conduit préférentiellement à l'alcool de classe la plus élevée : c'est une application de la règle de Markovnikov, bien connue en chimie organique.
+
+Le glycol (éthan-1,2-diol) s'obtient industriellement en deux étapes à partir de l'éthylène : une oxydation ménagée de l'éthylène par le dioxygène (catalysée à l'argent) forme d'abord l'oxyde d'éthylène, qui est ensuite hydrolysé en présence d'eau pour donner le diol.
+
+
+LEÇON 3 : Propriétés chimiques des alcools
+
+Déshydratation intramoléculaire : chauffé en présence d'un catalyseur solide tel que l'alumine (Al2O3), un alcool perd une molécule d'eau et se transforme en alcène. C'est la réaction inverse de l'hydratation vue en Leçon 2. Une déshydratation entre deux molécules d'alcool (au lieu d'une déshydratation interne à une même molécule) conduit, elle, à un éther-oxyde.
+
+Réaction avec le sodium : un alcool réagit avec le sodium métallique pour former un alcoolate de sodium et libérer du dihydrogène gazeux — c'est une réaction d'oxydo-réduction, analogue à celle de l'eau avec le sodium, mais plus modérée. Cette réaction permet notamment de mettre en évidence la présence d'une fonction alcool (dégagement gazeux caractéristique).
+
+Oxydation ménagée : c'est la réaction la plus importante à retenir, car son résultat dépend directement de la classe de l'alcool étudiée.
+- Un alcool primaire s'oxyde d'abord en aldéhyde, puis (si l'oxydant est en excès) en acide carboxylique.
+- Un alcool secondaire s'oxyde en cétone ; l'oxydation s'arrête à ce stade, la cétone ne pouvant pas être oxydée davantage sans casser la chaîne carbonée.
+- Un alcool tertiaire ne s'oxyde pas dans les conditions usuelles d'une oxydation ménagée, car son carbone fonctionnel ne porte aucun hydrogène directement.
+
+Cette oxydation peut se réaliser en phase gazeuse (dioxygène de l'air, catalysé par le cuivre chauffé) ou en solution acide, avec le permanganate de potassium (MnO4⁻) ou le dichromate de potassium (Cr2O7²⁻) comme oxydants. En solution, si l'oxydant est en défaut, un alcool primaire ne s'oxyde que jusqu'au stade aldéhyde ; si l'oxydant est en excès, l'oxydation se poursuit jusqu'à l'acide carboxylique correspondant.
+
+Méthode pour écrire une équation d'oxydation en milieu acide : on établit séparément la demi-équation d'oxydation de l'alcool (ou de l'aldéhyde) et la demi-équation de réduction de l'oxydant, puis on les combine de façon à éliminer les électrons échangés, avant d'ajuster si besoin les charges avec des ions H⁺ et l'équilibre en oxygène avec des molécules d'eau.
+
+
+LEÇON 4 : Aldéhydes et cétones
+
+Les aldéhydes et les cétones possèdent tous deux un groupe carbonyle C=O ; on les regroupe sous le nom de composés carbonylés.
+- Un aldéhyde a pour formule générale R—CHO : le groupe carbonyle est nécessairement situé en bout de chaîne, porté par un carbone lié à un seul autre groupe carboné (et à un atome d'hydrogène).
+- Une cétone a pour formule générale R1—CO—R2 : le groupe carbonyle est encadré par deux chaînes carbonées, donc nécessairement à l'intérieur de la molécule.
+
+Caractérisation des composés carbonylés :
+- Test commun (DNPH) : en présence de 2,4-dinitrophénylhydrazine, aldéhydes et cétones donnent tous deux un précipité jaune-orangé caractéristique du groupe carbonyle — ce test ne permet donc pas de distinguer les deux familles entre elles.
+- Pour distinguer un aldéhyde d'une cétone, on exploite le caractère réducteur propre aux aldéhydes, à travers trois tests spécifiques :
+  • Réactif de Schiff : incolore, il vire au rose en présence d'un aldéhyde (aucune coloration avec une cétone).
+  • Réactif de Tollens (nitrate d'argent ammoniacal) : les ions argent sont réduits en argent métallique, qui se dépose en un « miroir d'argent » sur les parois du tube à essai.
+  • Liqueur de Fehling : les ions cuivre (II), bleus, sont réduits en oxyde de cuivre (I), qui précipite sous forme d'un solide rouge brique par chauffage.
+Une cétone ne donne aucune de ces trois réactions, ce qui permet de la différencier sans ambiguïté d'un aldéhyde.
+
+Tableau récapitulatif des tests :
+| Réactif | Aldéhyde | Cétone |
+|---|---|---|
+| DNPH | précipité jaune-orangé | précipité jaune-orangé |
+| Réactif de Schiff | coloration rose | pas de réaction |
+| Réactif de Tollens | miroir d'argent | pas de réaction |
+| Liqueur de Fehling | précipité rouge brique | pas de réaction |
+
+
+Exercices d'application
+
+1) On considère le pentan-2-ol.
+   a) Écrire sa formule semi-développée et préciser sa classe.
+   b) Donner la formule et le nom du composé organique obtenu par oxydation ménagée en présence d'ions dichromate en excès.
+   c) Ce produit donne-t-il un précipité avec la liqueur de Fehling ? Justifier.
+
+2) Un alcool A, de formule brute C4H10O, est oxydé par une solution de dichromate de potassium en excès. Le produit obtenu B donne un précipité rouge brique avec la liqueur de Fehling et rosit le réactif de Schiff. B est ensuite oxydé en un acide carboxylique C.
+   a) Quelle est la classe de l'alcool A ?
+   b) Proposer une formule semi-développée possible pour A, B et C, et nommer chaque composé.
+
+3) On fait réagir du sodium métallique en excès sur 4,6 g d'éthanol pur.
+   a) Écrire l'équation-bilan de la réaction.
+   b) Sachant que la masse molaire de l'éthanol est 46 g/mol, calculer la quantité de matière d'éthanol introduite, puis le volume de dihydrogène dégagé dans les conditions où le volume molaire vaut 24 L/mol.

@@ -1,0 +1,12 @@
+.git
+.next
+.venv
+.pytest_cache
+node_modules
+reports
+notebooks
+data/raw
+data/extracted
+data/catalogs
+models/edulab-teacher-qwen-0.5b-lora/checkpoints
+*.log

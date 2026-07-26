@@ -1,0 +1,5 @@
+seed: 42
+dataset_status: synthetic_not_generated
+features: [accuracy, response_time, attempts, hints, regularity, inactivity_days]
+split_by: learner_id
+train: false
