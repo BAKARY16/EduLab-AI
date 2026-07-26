@@ -19,6 +19,8 @@ publish/
 .venv/
 __pycache__/
 .pytest_cache/
+pytest-cache-files-*/
+.npm-cache/
 .agents/
 .claude/
 .DS_Store

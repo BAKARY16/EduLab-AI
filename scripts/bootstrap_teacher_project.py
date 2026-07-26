@@ -10,7 +10,6 @@ import csv
 import hashlib
 import json
 import math
-import platform
 import random
 import re
 from collections import Counter
@@ -169,14 +168,6 @@ def build_reports(rows,splits,features):
     html="<h1>EduLab Teacher Dataset — EDA</h1><p>Rapport généré le "+TODAY+".</p>"+features.describe(include="all").to_html()+"<h2>Répartition par classe</h2>"+features.class_name.value_counts().to_frame().to_html()+"<h2>Matières</h2>"+features.subject.value_counts().to_frame().to_html()+"<h2>Tâches</h2>"+features.task.value_counts().to_frame().to_html()
     (ROOT/"reports/dataset_eda_report.html").write_text(html,encoding="utf-8")
     (ROOT/"reports/data_sources_report.md").write_text(f"# Rapport des sources\n\nConsultation: {TODAY}. {len(SOURCES)} sources inventoriées. Deux PDF DPFC sont présents localement; les autres URL restent référencées. Aucun document protégé n’a été redistribué. Les contenus générés sont tous marqués synthétiques. SciQ n’est pas traité comme programme ivoirien.\n",encoding="utf-8")
-    mcp=f"""# Audit MCP et outils — {TODAY}\n\n## Constat vérifié\n\n- Client actif: Codex dans VS Code, Windows, Python {platform.python_version()}.\n- MCP visibles: ressources `codex_apps` (templates et GitHub). **Aucun MCP Hugging Face n'est connecté.**\n- Navigateur: outil web de recherche/lecture disponible; pas de session interactive pilotée.\n- Fichiers: lecture/écriture dans le workspace; terminal PowerShell; Git {platform.system()}.\n- Calcul local: PyTorch CPU; aucun entraînement lourd n'est annoncé.\n\n## Hugging Face MCP\n\nLa configuration officielle est documentée dans `docs/BROWSER_MCP_SETUP.md`. Elle nécessite une action humaine dans le client depuis https://huggingface.co/mcp. Aucun succès de connexion n’est inventé. Le téléchargement public via HTTPS/Transformers reste indépendant du MCP.\n"""
-    (ROOT/"reports/mcp_and_tools_report.md").write_text(mcp,encoding="utf-8")
-    (ROOT/"reports/baseline_report.md").write_text("# Baseline\n\nNon exécutée à la création du dataset. Exécuter `notebooks/03_teacher_model_baseline.ipynb` sur Colab GPU. Aucun score n’est inventé.\n",encoding="utf-8")
-    (ROOT/"reports/training_report.md").write_text("# Entraînement LoRA\n\nStatut: non exécuté. Le notebook 04 contient la procédure réelle Colab. Aucun faux poids. PyTorch local est corrompu (`torchgen` absent) et sa réinstallation a expiré; utiliser Colab GPU.\n",encoding="utf-8")
-    (ROOT/"reports/error_analysis.md").write_text("# Analyse des erreurs\n\nÀ compléter après exécution conjointe des notebooks baseline, entraînement et évaluation. Risques connus: validation humaine scientifique incomplète, ancrages curriculaires Terminale à vérifier, biais des exemples synthétiques.\n",encoding="utf-8")
-    pd.DataFrame(columns=["prompt_id","base_score","lora_score","format_valid","scientific_accuracy","notes"]).to_csv(ROOT/"reports/model_comparison.csv",index=False)
-    final=f"""# Rapport final de la session\n\n## Réalisé\n\n- Outils et MCP audités; HF MCP absent et documenté honnêtement.\n- {len(SOURCES)} sources inventoriées, deux PDF locaux, autres documents référencés seulement.\n- {len(rows)} exemples, tous synthétiques et traçables, {len(set(x['lesson'] for x in rows))} notions.\n- Splits groupés par leçon: {stats['splits']}.\n- EDA, features Parquet, scripts, notebooks et tests créés.\n- Modèle imposé dans les notebooks: `Qwen/Qwen2.5-0.5B-Instruct`; méthode LoRA séparée.\n\n## Non terminé / honnêteté\n\nL’adaptateur LoRA n’est pas déclaré entraîné par ce bootstrap. Le dossier modèle ne contient aucun faux poids. SciQ est un Parquet vide tant que le téléchargement officiel n’a pas été exécuté. Baseline, entraînement GPU, inférence et comparaison doivent être exécutés dans Colab.\n\n## Reprise\n\n```powershell\n.\\.venv\\Scripts\\python.exe scripts\\validate_teacher_dataset.py\n.\\.venv\\Scripts\\python.exe -m pytest tests\\test_dataset_schema.py tests\\test_dataset_splits.py\n```\nPuis ouvrir les notebooks 01 à 06 dans l’ordre sur Colab GPU.\n"""
-    (ROOT/"reports/final_evening_report.md").write_text(final,encoding="utf-8")
 
 def notebook(title,cells):
     nb=nbf.v4.new_notebook(); nb["metadata"]={"kernelspec":{"display_name":"Python 3","language":"python","name":"python3"},"language_info":{"name":"python","version":"3"},"colab":{"name":title}}
