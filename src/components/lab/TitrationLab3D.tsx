@@ -188,8 +188,11 @@ export default function TitrationLab3D() {
   const ph = useMemo(() => computePh(ca, vb), [ca, vb]);
   const vbRef = useRef(0);
   const phRef = useRef(ph);
-  vbRef.current = vb;
-  phRef.current = ph;
+
+  useEffect(() => {
+    vbRef.current = vb;
+    phRef.current = ph;
+  }, [vb, ph]);
 
   const veq = (ca * VA_ML) / CB;
 

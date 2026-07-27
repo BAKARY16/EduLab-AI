@@ -33,7 +33,7 @@ export default async function LabPage() {
         <FlaskRound className="mt-0.5 h-5 w-5 shrink-0 text-amber-edu" />
         <p>
           Ces simulations sont calculées en temps réel (SVG, Canvas) à partir des lois physiques et
-          mathématiques du programme. Aucune donnée n'est simulée : les résultats sont réels.
+          mathématiques du programme. Aucune donnée n’est simulée : les résultats sont réels.
         </p>
       </div>
 
@@ -57,7 +57,7 @@ export default async function LabPage() {
                   <p className="mt-1 line-clamp-2 text-sm text-night-800/70">{e.summary}</p>
                   <p className="mt-2 text-xs text-night-800/50">Leçon : {e.lesson}</p>
                   <p className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-sky-edu">
-                    Lancer l'expérience <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                    Lancer l’expérience <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </p>
                 </Link>
               ))}

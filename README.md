@@ -70,4 +70,6 @@ python -m pytest
 
 Les choix d’architecture, le catalogue API, les rapports IA/RAG, la sécurité et les procédures d’installation sont disponibles dans le dossier `docs/`.
 
+Pour la présentation Data/ML, ouvrez `notebooks/06_student_learning_analytics_colab.ipynb`. Il analyse un dataset élèves synthétique et anonymisé de bout en bout. La fiche `docs/MODELS_AND_ANALYTICS_GUIDE.md` explique le rôle et le niveau de maturité de chaque modèle.
+
 > Les contenus éducatifs doivent rester traçables, autorisés et clairement distingués des données de démonstration avant toute mise en production.

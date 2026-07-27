@@ -164,7 +164,7 @@ function OhmSim() {
               </circle>
             ))}
           </svg>
-          <p className="text-center text-xs text-night-800/60">L'ampoule brille selon l'intensité du courant.</p>
+          <p className="text-center text-xs text-night-800/60">L’ampoule brille selon l’intensité du courant.</p>
         </Panel>
         <Panel title="Caractéristique U = f(I)">
           <canvas id="ohm-graph" width={260} height={140} className="mx-auto w-full" />
@@ -265,7 +265,7 @@ function ForceSim() {
         <div className="mt-4 text-center">
           <Metric label="Accélération a = F/m" value={a.toFixed(2)} unit="m/s²" highlight big />
         </div>
-        <Obs>Pour une même force, plus la masse est grande, plus l'accélération est faible.</Obs>
+        <Obs>Pour une même force, plus la masse est grande, plus l’accélération est faible.</Obs>
       </Panel>
       <Panel title="Mouvement du bloc">
         <div className="relative h-40 overflow-hidden rounded-xl bg-night-950">
@@ -370,7 +370,7 @@ function StatsSim() {
     });
     ctx.fillStyle = "#64748b"; ctx.font = "10px sans-serif";
     data.forEach((d, i) => ctx.fillText(String(d), 10 + i * bw + 2, H - 6));
-  }, [raw]);
+  }, [data, n]);
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <Panel title="Série de valeurs (séparées par ; )">
@@ -384,7 +384,7 @@ function StatsSim() {
           <Metric label="Écart-type" value={std.toFixed(2)} />
           <Metric label="Effectif" value={`${n}`} />
         </div>
-        <Obs>La moyenne résume la série ; l'écart-type mesure la dispersion autour de cette moyenne.</Obs>
+        <Obs>La moyenne résume la série ; l’écart-type mesure la dispersion autour de cette moyenne.</Obs>
       </Panel>
       <Panel title="Histogramme">
         <canvas id="stats-graph" width={300} height={220} className="mx-auto w-full" />
@@ -564,5 +564,4 @@ export const SIMULATIONS: Record<string, () => ReactNode> = {
   stats: StatsSim, ph: PhSim, respiration: RespirationSim, genetics: GeneticsSim,
   titration: () => <TitrationLab3D />,
 };
-
 
