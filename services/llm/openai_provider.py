@@ -13,6 +13,13 @@ Conserve les symboles exacts au tableau. Dans les phrases explicatives, nomme or
 Termine par une courte question permettant d'évaluer la compréhension de l'apprenant."""
 
 
+PEDAGOGICAL_INSTRUCTIONS += """
+Utilise en priorité le contexte officiel DPFC fourni, puis les sources éducatives et web explicitement fournies.
+Si le contexte est insuffisant, dis-le sans inventer. Ne transforme jamais une hypothèse en fait.
+Pour une démonstration, structure la réponse avec DONNÉES, PROPRIÉTÉ, CALCULS, VÉRIFICATION et CONCLUSION.
+"""
+
+
 def generate_openai(settings: Any, payload: dict[str, Any]) -> dict[str, Any]:
     if not settings.openai_api_key:
         raise RuntimeError("OPENAI_API_KEY absente")
@@ -27,6 +34,7 @@ def generate_openai(settings: Any, payload: dict[str, Any]) -> dict[str, Any]:
             "reasoning": {"effort": settings.openai_reasoning_effort},
             "text": {"verbosity": "medium"},
             "max_output_tokens": payload.get("max_new_tokens", 192) * 2,
+            "store": False,
         }, timeout=45,
     )
     response.raise_for_status()

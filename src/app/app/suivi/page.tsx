@@ -38,7 +38,7 @@ export default async function SuiviPage() {
       <SectionTitle
         eyebrow="Suivi personnalisé"
         title="Ta progression détaillée"
-        subtitle="Le modèle d'apprentissage analyse tes réponses, ton temps, tes indices et tes erreurs pour estimer ta maîtrise par compétence."
+        subtitle="Tes réponses, ton temps de travail, les indices utilisés et tes erreurs alimentent une estimation de ta maîtrise par compétence."
       />
 
       {/* ML signals */}
@@ -55,7 +55,7 @@ export default async function SuiviPage() {
             <Sparkles className="h-6 w-6" />
           </div>
           <div>
-            <h3 className="font-bold text-night-900">Analyse du modèle</h3>
+            <h3 className="font-bold text-night-900">Recommandation pédagogique</h3>
             <p className="mt-1 text-sm text-night-800/80">{recommendation}</p>
             <p className="mt-1 text-xs text-night-800/60">
               Signaux analysés : taux de réussite, temps moyen, indices utilisés ({avgHints.toFixed(1)}), régularité et engagement.
@@ -93,7 +93,7 @@ export default async function SuiviPage() {
         <Card className="p-5">
           <h3 className="flex items-center gap-2 font-bold text-night-900"><Target className="h-5 w-5 text-leaf" /> Détail par compétence</h3>
           {rows.length === 0 ? (
-            <p className="mt-3 text-sm text-night-800/60">Aucune compétence évaluée pour l'instant.</p>
+            <p className="mt-3 text-sm text-night-800/60">Aucune compétence évaluée pour l’instant.</p>
           ) : (
             <div className="mt-4 space-y-3">
               {rows.map(({ course, progress: p }) => {
@@ -121,7 +121,7 @@ export default async function SuiviPage() {
         <h3 className="font-bold text-night-900">Points à revoir en priorité</h3>
         <div className="mt-3 flex flex-wrap gap-2">
           {rows.filter((r) => (r.progress.mastery ?? 0) < 0.6).length === 0 ? (
-            <p className="text-sm text-leaf">Aucun point faible détecté. Continue comme ça ! 🎯</p>
+            <p className="flex items-center gap-2 text-sm text-leaf"><CheckCircle2 className="h-4 w-4"/>Aucun point prioritaire détecté pour le moment.</p>
           ) : (
             rows.filter((r) => (r.progress.mastery ?? 0) < 0.6).map(({ course }) => (
               <Badge key={course.key} color="amber">{course.lesson}</Badge>

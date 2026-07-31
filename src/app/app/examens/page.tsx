@@ -32,7 +32,7 @@ export default async function ExamsPage() {
           {examClass
             ? `Tu es en classe d'examen (${cycle || "BEPC/BAC"}). Les fiches de révision sont générées à partir de tes erreurs.`
             : "Coche « classe d'examen » dans ton profil pour activer un suivi dédié."}{" "}
-          Sujets issus de sources autorisées (DECO, Fomesoutra) — à but d'entraînement.
+          Chaque sujet affiche sa source et son année. Les contenus non encore vérifiés doivent être utilisés comme entraînement, jamais comme document officiel de référence.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ export default async function ExamsPage() {
                     <Layers className="h-3.5 w-3.5" /> {e.questions.length} questions
                   </p>
                   <p className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-sky-edu">
-                    S'entraîner <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                    S’entraîner <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </p>
                 </Link>
               );

@@ -20,8 +20,9 @@ load_dotenv(_ROOT / ".env.local")
 load_dotenv(_ROOT / ".env")
 
 OFFICIAL_DOMAINS = {"dpfc-ci.net", "ecole-ci.org", "education.gouv.ci", "men-deco.org", "gouv.ci"}
+EDUCATIONAL_DOMAINS = {"phet.colorado.edu", "openstax.org", "khanacademy.org", "unesco.org"}
 COMMUNITY_DOMAINS = {"fomesoutra.com"}
-ALLOWED_DOMAINS = OFFICIAL_DOMAINS | COMMUNITY_DOMAINS
+ALLOWED_DOMAINS = OFFICIAL_DOMAINS | EDUCATIONAL_DOMAINS | COMMUNITY_DOMAINS
 
 SERPAPI_URL = "https://serpapi.com/search.json"
 
@@ -45,7 +46,11 @@ def _allowed(domain: str) -> bool:
 
 
 def _official_status(domain: str) -> str:
-    return "official" if any(domain == d or domain.endswith(f".{d}") for d in OFFICIAL_DOMAINS) else "community"
+    if any(domain == d or domain.endswith(f".{d}") for d in OFFICIAL_DOMAINS):
+        return "official"
+    if any(domain == d or domain.endswith(f".{d}") for d in EDUCATIONAL_DOMAINS):
+        return "educational"
+    return "community"
 
 
 class WebResearchAgent:
@@ -56,12 +61,13 @@ class WebResearchAgent:
     def configured(self) -> bool:
         return bool(self.api_key)
 
-    def search(self, query: str, k: int = 3) -> list[WebResult]:
+    def search(self, query: str, k: int = 3, allow_general: bool = False) -> list[WebResult]:
         if not self.configured or not query.strip():
             return []
 
         site_filter = " OR ".join(f"site:{d}" for d in ALLOWED_DOMAINS)
-        params = {"engine": "google", "q": f"{query} ({site_filter})", "num": k, "api_key": self.api_key}
+        search_query = query if allow_general else f"{query} ({site_filter})"
+        params = {"engine": "google", "q": search_query, "num": max(k * 2, 5), "api_key": self.api_key, "hl": "fr"}
         try:
             response = httpx.get(SERPAPI_URL, params=params, timeout=15.0)
             response.raise_for_status()
@@ -75,7 +81,7 @@ class WebResearchAgent:
             domain = _domain_of(url)
             # Défense en profondeur : on ignore tout résultat hors liste blanche même
             # si le filtre "site:" ci-dessus aurait dû suffire.
-            if not _allowed(domain):
+            if not url.startswith("https://") or (not allow_general and not _allowed(domain)):
                 continue
             results.append(
                 WebResult(
@@ -83,7 +89,7 @@ class WebResearchAgent:
                     url=url,
                     excerpt=item.get("snippet", ""),
                     domain=domain,
-                    official_status=_official_status(domain),
+                    official_status=_official_status(domain) if _allowed(domain) else "web_unverified",
                     verified=False,
                 )
             )

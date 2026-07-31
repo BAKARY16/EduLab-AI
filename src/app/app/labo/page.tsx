@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FlaskConical, ArrowRight, FlaskRound } from "lucide-react";
+import { FlaskConical, ArrowRight, FlaskRound, Lightbulb, SlidersHorizontal, Ruler, CheckCircle2 } from "lucide-react";
 import { EXPERIMENTS } from "@/lib/content";
 import { getCurrentUser } from "@/lib/auth";
 import { Card, Badge, SectionTitle } from "@/components/ui";
@@ -32,10 +32,29 @@ export default async function LabPage() {
       <div className="flex items-start gap-3 rounded-2xl border border-amber-edu/20 bg-amber-edu/5 p-4 text-sm text-night-800">
         <FlaskRound className="mt-0.5 h-5 w-5 shrink-0 text-amber-edu" />
         <p>
-          Ces simulations sont calculées en temps réel (SVG, Canvas) à partir des lois physiques et
-          mathématiques du programme. Aucune donnée n’est simulée : les résultats sont réels.
+          Les résultats sont calculés en temps réel à partir des paramètres choisis et des lois du programme.
+          La simulation complète l’expérimentation en classe ; elle ne remplace pas une manipulation réelle encadrée.
         </p>
       </div>
+
+      <Card className="p-5">
+        <h2 className="font-bold text-night-900">Protocole expérimental guidé</h2>
+        <p className="mt-1 text-sm text-night-800/65">Chaque expérience suit la méthode scientifique et conserve les mesures de l’apprenant.</p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            [Lightbulb, "1. Hypothèse", "Prévoir le résultat avant toute manipulation."],
+            [SlidersHorizontal, "2. Manipulation", "Modifier une seule variable à la fois."],
+            [Ruler, "3. Mesures", "Observer les unités, valeurs et courbes obtenues."],
+            [CheckCircle2, "4. Conclusion", "Comparer les résultats à l’hypothèse et expliquer."],
+          ].map(([Icon, title, detail]) => (
+            <div key={String(title)} className="rounded-xl border border-night-900/10 bg-night-50 p-4">
+              <Icon className="h-5 w-5 text-sky-edu" />
+              <p className="mt-2 text-sm font-bold text-night-900">{String(title)}</p>
+              <p className="mt-1 text-xs leading-5 text-night-800/65">{String(detail)}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
 
       {Array.from(bySubject.entries()).map(([subject, items]) => {
         const color = ICONS[subject] || "sky";

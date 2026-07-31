@@ -27,9 +27,13 @@ export default function HomeworkHelpPage() {
   const [showSolution, setShowSolution] = useState(false);
   const [hint, setHint] = useState("");
   const [solution, setSolution] = useState("");
+  const [className, setClassName] = useState("Terminale D");
+  const [subject, setSubject] = useState("Mathématiques");
+  const [error, setError] = useState("");
+  const [actionLoading, setActionLoading] = useState(false);
 
   async function queryTeacher(instruction: string) {
-    const response = await fetch("/api/teacher-model", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ instruction, class_name: "Terminale D", subject: "Mathématiques", max_new_tokens: 128 }) });
+    const response = await fetch("/api/teacher-model", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ instruction, session_topic: `${subject} — ${className} — aide aux devoirs`, class_name: className, subject, max_new_tokens: 240, allow_web_research: true }) });
     const result = await response.json() as { answer?: string; detail?: string };
     if (!response.ok) throw new Error(result.detail || "Service professeur indisponible");
     return result.answer || "Le corpus ne contient pas assez d'informations fiables.";
@@ -37,6 +41,7 @@ export default function HomeworkHelpPage() {
 
   async function analyze() {
     if (!statement.trim()) return;
+    setError("");
     setPhase("analyzing");
     try {
       const analysis = await queryTeacher(`Analyse cet exercice sans donner la réponse finale. Identifie la notion, les données, l'inconnue et les propriétés utiles. Énoncé: ${statement}`);
@@ -51,13 +56,13 @@ export default function HomeworkHelpPage() {
       setShowSolution(false);
       setAttempt("");
       setHint(""); setSolution("");
-    } catch { setPhase("idle"); }
+    } catch (reason) { setPhase("idle"); setError(reason instanceof Error ? reason.message : "L’analyse n’a pas pu être réalisée."); }
   }
 
   async function nextHint() {
+    setError(""); setActionLoading(true);
     const ni = hintIndex + 1;
-    setHintIndex(ni);
-    setHint(await queryTeacher(`Donne uniquement l'indice progressif numéro ${ni + 1}, sans donner la réponse finale. Énoncé: ${statement}. Tentative: ${attempt || "aucune"}`));
+    try { setHint(await queryTeacher(`Donne uniquement l'indice progressif numéro ${ni + 1}, sans donner la réponse finale. Énoncé: ${statement}. Tentative: ${attempt || "aucune"}`)); setHintIndex(ni);
     recordAttempt({
       scope: "homework",
       statement,
@@ -65,22 +70,23 @@ export default function HomeworkHelpPage() {
       hintsUsed: ni + 1,
       correct: undefined,
       timeSpentSec: 0,
-    });
+    }); } catch(reason){setError(reason instanceof Error?reason.message:"Impossible de générer un indice.");} finally {setActionLoading(false);}
   }
 
   async function revealSolution() {
-    setSolution(await queryTeacher(`Corrige au tableau étape par étape cet exercice. Vérifie le domaine, écris chaque transformation et conclus. Énoncé: ${statement}. Tentative de l'apprenant: ${attempt || "aucune"}`));
+    setError(""); setActionLoading(true);
+    try { setSolution(await queryTeacher(`Corrige au tableau étape par étape cet exercice. Vérifie les données, écris chaque étape du raisonnement et conclus. Énoncé: ${statement}. Tentative de l'apprenant: ${attempt || "aucune"}`));
     setShowSolution(true);
-    const correct = attempt.trim().length > 2;
     recordAttempt({
       scope: "homework",
       statement,
       attempt: attempt || undefined,
       hintsUsed: hintIndex + 1,
-      correct,
+      correct: undefined,
       timeSpentSec: 0,
     });
     logActivity({ activityType: "homework_solved", meta: { hints: hintIndex + 1, revealed: true } });
+    } catch(reason){setError(reason instanceof Error?reason.message:"Impossible de produire la correction.");} finally {setActionLoading(false);}
   }
 
   return (
@@ -93,7 +99,8 @@ export default function HomeworkHelpPage() {
 
       {/* Input */}
       <Card className="p-5">
-        <label className="text-sm font-semibold text-night-900">Colle ton énoncé d'exercice</label>
+        <div className="mb-4 grid gap-3 sm:grid-cols-2"><label className="text-xs font-semibold text-night-800/65">Niveau<select value={className} onChange={event=>setClassName(event.target.value)} className="mt-1.5 w-full rounded-xl border border-night-900/10 bg-white p-2.5 text-sm"><option>Troisième</option><option>Terminale C</option><option>Terminale D</option></select></label><label className="text-xs font-semibold text-night-800/65">Matière<select value={subject} onChange={event=>setSubject(event.target.value)} className="mt-1.5 w-full rounded-xl border border-night-900/10 bg-white p-2.5 text-sm"><option>Mathématiques</option><option>Physique-Chimie</option><option>SVT</option><option>Français</option><option>Histoire-Géographie</option></select></label></div>
+        <label className="text-sm font-semibold text-night-900">Colle ton énoncé d’exercice</label>
         <textarea
           value={statement}
           onChange={(e) => setStatement(e.target.value)}
@@ -109,9 +116,10 @@ export default function HomeworkHelpPage() {
           {phase === "analyzing" ? (
             <><Loader2 className="h-4 w-4 animate-spin" /> Analyse en cours…</>
           ) : (
-            <><Search className="h-4 w-4" /> Analyser l'énoncé</>
+            <><Search className="h-4 w-4" /> Analyser l’énoncé</>
           )}
         </button>
+        {error&&<p role="alert" className="mt-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</p>}
       </Card>
 
       {/* Pipeline */}
@@ -146,6 +154,7 @@ export default function HomeworkHelpPage() {
               )}
               <button
                 onClick={nextHint}
+                disabled={actionLoading}
                 className="inline-flex items-center gap-1.5 rounded-lg bg-amber-edu/10 px-3 py-2 text-xs font-semibold text-amber-edu hover:bg-amber-edu/20"
               >
                 <Lightbulb className="h-4 w-4" /> {hintIndex >= 0 ? "Indice suivant" : "Demander un indice"}
@@ -159,6 +168,7 @@ export default function HomeworkHelpPage() {
             {!showSolution ? (
               <button
                 onClick={revealSolution}
+                disabled={actionLoading}
                 className="inline-flex items-center gap-1.5 rounded-lg bg-leaf/10 px-4 py-2 text-sm font-semibold text-leaf hover:bg-leaf/20"
               >
                 <BookMarked className="h-4 w-4" /> Voir la solution détaillée

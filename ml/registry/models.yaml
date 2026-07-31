@@ -1,4 +1,58 @@
+schema_version: "2.0"
+routing_config: configs/model_routing.yaml
 models:
+  - name: gpt-5.6-sol
+    task: final_pedagogical_reasoning
+    version: api
+    source: OpenAI
+    license: commercial_api
+    architecture: responses_api_reasoning_model
+    hardware: managed
+    dataset: retrieved_curriculum_context
+    metrics: monitored_in_application
+    limits: requires OPENAI_API_KEY; final answers remain grounded by supplied context
+    status: production_primary
+    path: services/llm/openai_provider.py
+    date: 2026-07-27
+  - name: gemini-3.5-flash-google-search
+    task: grounded_web_research
+    version: api
+    source: Google
+    license: commercial_api
+    architecture: generate_content_with_google_search
+    hardware: managed
+    dataset: allowlisted educational and institutional web sources
+    metrics: citation/domain validation
+    limits: optional; requires GEMINI_API_KEY and is never the final answer authority
+    status: optional_research_provider
+    path: services/llm/gemini_provider.py
+    date: 2026-07-27
+  - name: paraphrase-multilingual-MiniLM-L12-v2
+    task: semantic_curriculum_retrieval
+    version: sentence-transformers
+    source: open_source
+    license: Apache-2.0
+    architecture: multilingual_dense_embeddings_faiss
+    hardware: CPU
+    dataset: local validated curriculum chunks
+    metrics: fused with lexical ranking
+    limits: falls back to TF-IDF when the dense index is unavailable
+    status: production_optional_dense_layer
+    path: rag/retrieval/search.py
+    date: 2026-07-27
+  - name: gpt-4o-mini-transcribe
+    task: learner_speech_to_text
+    version: api
+    source: OpenAI
+    license: commercial_api
+    architecture: audio_transcription
+    hardware: managed
+    dataset: learner audio sent only on explicit microphone use
+    metrics: browser fallback available
+    limits: requires provider credentials and microphone consent
+    status: production_voice_input
+    path: apps/api/app/api/router.py
+    date: 2026-07-27
   - name: deterministic-nlp-baseline
     task: intent_and_subject_classification
     version: 0.1.0

@@ -6,6 +6,7 @@ import {
   BarChart3,
   BrainCircuit,
   BookOpen,
+  Building2,
   Bot,
   Check,
   ChevronRight,
@@ -15,6 +16,7 @@ import {
   FileCheck2,
   FlaskConical,
   GraduationCap,
+  Handshake,
   Lightbulb,
   LockKeyhole,
   MapPin,
@@ -29,6 +31,7 @@ import {
   TrendingUp,
   UserRoundCheck,
   Users,
+  WalletCards,
 } from "lucide-react";
 
 const problems = [
@@ -67,6 +70,7 @@ export default function LandingPage() {
             <a href="#solution" className="transition hover:text-[#0d9b78]">Solution</a>
             <a href="#technologie" className="transition hover:text-[#0d9b78]">Technologie</a>
             <a href="#demonstration" className="transition hover:text-[#0d9b78]">Démonstration</a>
+            <a href="#modele-economique" className="transition hover:text-[#0d9b78]">Modèle économique</a>
             <a href="#impact" className="transition hover:text-[#0d9b78]">Impact</a>
           </div>
           <div className="flex items-center gap-2">
@@ -166,9 +170,29 @@ export default function LandingPage() {
           </div>
         </section>
 
+        <section id="modele-economique" className="bg-white px-5 py-24">
+          <div className="mx-auto max-w-7xl">
+            <Chapter number="05" title="Le modèle économique" />
+            <div className="grid gap-12 lg:grid-cols-[.85fr_1.15fr]">
+              <SectionIntro eyebrow="Accessibilité et pérennité" title="Un modèle freemium complété par des offres pour les établissements." text="L’accès essentiel reste abordable pour les familles. Les fonctions avancées, le pilotage pédagogique et le déploiement institutionnel financent l’amélioration continue des contenus et de l’infrastructure." />
+              <div className="grid gap-4 sm:grid-cols-2">
+                <TrustCard icon={Users} title="Élève — accès gratuit" text="Cours essentiels, exercices, progression de base et accès limité au professeur IA." />
+                <TrustCard icon={WalletCards} title="Élève Plus" text="IA et voix étendues, préparation intensive BEPC/BAC, bilans et parcours personnalisés." />
+                <TrustCard icon={Building2} title="Établissements" text="Licences par classe ou par école, espace enseignant, tableaux de bord et accompagnement." />
+                <TrustCard icon={Handshake} title="Partenariats" text="Programmes pilotes avec institutions, opérateurs, ONG et acteurs de l’éducation numérique." />
+              </div>
+            </div>
+            <div className="mt-12 grid gap-4 rounded-3xl bg-[#173c30] p-7 text-white md:grid-cols-3">
+              <ImpactCard title="Revenus" text="Abonnements premium, licences B2B/B2G et services de déploiement." />
+              <ImpactCard title="Coûts maîtrisés" text="Routage des modèles selon la difficulté, cache sémantique et contenus réutilisables." />
+              <ImpactCard title="Mesure de valeur" text="Activation, assiduité, progression, réussite aux exercices et rétention des établissements." />
+            </div>
+          </div>
+        </section>
+
         <section id="impact" className="bg-[#e8efe6] px-5 py-24">
           <div className="mx-auto max-w-7xl">
-            <Chapter number="05" title="L’impact" />
+            <Chapter number="06" title="L’impact" />
             <div className="grid gap-12 lg:grid-cols-2">
               <SectionIntro eyebrow="Pourquoi c’est important" title="Réduire l’écart entre apprendre une notion et réellement la comprendre." text="EduLab AI vise à rendre l’accompagnement personnalisé et la pratique scientifique accessibles au-delà des contraintes de temps, de lieu et d’équipement." />
               <div className="grid gap-4 sm:grid-cols-2">
@@ -192,7 +216,7 @@ export default function LandingPage() {
         </section>
       </main>
 
-      <footer className="border-t border-[#173c30]/10 px-5 py-12"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 sm:flex-row"><div><Link href="/" className="flex items-center gap-2 text-lg font-black"><Atom className="h-5 w-5 text-[#0d9b78]" /> EduLab AI</Link><p className="mt-3 max-w-md text-sm leading-6 text-[#557165]">Plateforme éducative scientifique destinée à accompagner les apprentissages dans le contexte scolaire ivoirien.</p></div><div className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold"><a href="#probleme">Problème</a><a href="#solution">Solution</a><a href="#technologie">Technologie</a><a href="#demonstration">Démo</a><a href="#impact">Impact</a></div></div><div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-2 border-t border-[#173c30]/10 pt-6 text-xs text-[#6b8077] sm:flex-row"><p>© {new Date().getFullYear()} EduLab AI.</p><p>Les contenus de démonstration sont explicitement identifiés.</p></div></footer>
+      <footer className="border-t border-[#173c30]/10 px-5 py-12"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 sm:flex-row"><div><Link href="/" className="flex items-center gap-2 text-lg font-black"><Atom className="h-5 w-5 text-[#0d9b78]" /> EduLab AI</Link><p className="mt-3 max-w-md text-sm leading-6 text-[#557165]">Plateforme éducative scientifique destinée à accompagner les apprentissages dans le contexte scolaire ivoirien.</p></div><div className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold"><a href="#probleme">Problème</a><a href="#solution">Solution</a><a href="#technologie">Technologie</a><a href="#demonstration">Démo</a><a href="#modele-economique">Modèle économique</a><a href="#impact">Impact</a></div></div><div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-2 border-t border-[#173c30]/10 pt-6 text-xs text-[#6b8077] sm:flex-row"><p>© {new Date().getFullYear()} EduLab AI.</p><p>Les contenus de démonstration sont explicitement identifiés.</p></div></footer>
     </div>
   );
 }

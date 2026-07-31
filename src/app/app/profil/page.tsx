@@ -28,7 +28,7 @@ export default async function ProfilePage() {
               <p className="text-sm text-slate-300">{user.email}</p>
               <div className="mt-1.5 flex flex-wrap gap-2">
                 <Badge color="sky">{user.role === "student" ? "Élève" : user.role === "teacher" ? "Enseignant" : "Administrateur"}</Badge>
-                {p?.examClass && <Badge color="amber">Classe d'examen</Badge>}
+                {p?.examClass && <Badge color="amber">Classe d’examen</Badge>}
               </div>
             </div>
           </div>
@@ -73,9 +73,9 @@ export default async function ProfilePage() {
       <Card className="p-5">
         <h3 className="flex items-center gap-2 font-bold text-night-900"><ShieldCheck className="h-5 w-5 text-turq" /> Confidentialité & données</h3>
         <ul className="mt-3 space-y-2 text-sm text-night-800/80">
-          <li>✓ Tes données d'apprentissage sont enregistrées de manière <strong>anonymisée</strong> (jamais ton identité).</li>
-          <li>✓ Les données réelles sont séparées des données synthétiques utilisées pour initialiser les modèles.</li>
-          <li>✓ La protection des mineurs est respectée : aucune donnée personnelle sensible n'est exposée.</li>
+          <li className="flex gap-2"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#175c44]"/><span>Les données d’apprentissage sont associées au compte uniquement pour assurer le suivi pédagogique.</span></li>
+          <li className="flex gap-2"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#175c44]"/><span>Les données réelles sont séparées des données synthétiques utilisées pour développer les modèles.</span></li>
+          <li className="flex gap-2"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#175c44]"/><span>Les informations sensibles ne sont jamais affichées dans les espaces pédagogiques publics.</span></li>
         </ul>
       </Card>
 

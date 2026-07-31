@@ -775,9 +775,12 @@
                   "class_name": "Terminale D",
                   "series": "D",
                   "subject": "Physique-Chimie",
-                  "source_ids": [],
-                  "official_status": "ai_generated",
-                  "validation_status": "pending",
+                  "source_ids": [
+                    "SRC-PC-TD",
+                    "FOM-CHIMIE-TD"
+                  ],
+                  "official_status": "curriculum_anchor",
+                  "validation_status": "requires_human_curriculum_check",
                   "available": true
                 }
               ]

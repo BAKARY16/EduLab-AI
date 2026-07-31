@@ -20,8 +20,10 @@ class Settings(BaseSettings):
     llm_provider: str = "local_teacher"
     llm_model: str | None = None
     openai_api_key: str | None = None
-    openai_model: str = "gpt-5.6-terra"
-    openai_reasoning_effort: Literal["none", "low", "medium", "high"] = "medium"
+    openai_model: str = "gpt-5.6-sol"
+    openai_reasoning_effort: Literal["none", "low", "medium", "high", "xhigh", "max"] = "medium"
+    gemini_api_key: str | None = None
+    gemini_model: str = "gemini-3.5-flash"
     teacher_model_url: str = "http://teacher-model:8010"
     max_upload_mb: int = 20
 

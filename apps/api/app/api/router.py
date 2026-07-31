@@ -24,6 +24,7 @@ from services.voice.math_speech import MATH_SPEECH_VERSION, prepare_for_speech_w
 from services.voice.providers import OpenAISpeechToTextProvider  # noqa: E402
 from services.cache.semantic import tutor_cache  # noqa: E402
 from services.llm.openai_provider import generate_openai  # noqa: E402
+from services.llm.gemini_provider import research_with_gemini  # noqa: E402
 from rag.retrieval.search import search as rag_search  # noqa: E402
 
 router = APIRouter()
@@ -69,12 +70,15 @@ class RagSearchRequest(BaseModel):
 
 class TutorGenerateRequest(BaseModel):
     instruction: str = Field(min_length=3,max_length=2000)
+    learner_question: str | None = Field(default=None, min_length=2, max_length=1000)
+    session_topic: str | None = Field(default=None, max_length=500)
+    session_context: str = Field(default="", max_length=6000)
     class_name: str
     subject: str
     context: str = Field(default="",max_length=4000)
     use_rag: bool = True
     allow_web_research: bool = True
-    max_new_tokens: int = Field(default=112, ge=32, le=192)
+    max_new_tokens: int = Field(default=240, ge=64, le=512)
 
 def _generate_with_teacher(payload: dict[str,Any]) -> dict[str,Any]:
     settings=get_settings()
@@ -94,29 +98,71 @@ def search_knowledge(payload:RagSearchRequest)->dict[str,Any]:
 
 @router.post("/tutor/generate",tags=["tutor"])
 def generate_tutor(payload:TutorGenerateRequest)->dict[str,Any]:
-    hits=rag_search(payload.instruction,k=4,subject=payload.subject,academic_class=payload.class_name) if payload.use_rag else []
+    # La question brute reste l'intention de référence. Les longues consignes UI
+    # (cours courant, format, sources) ne doivent jamais détourner la recherche.
+    retrieval_query=(payload.learner_question or payload.instruction).strip()
+    research_query=" ".join(part for part in (payload.session_topic, retrieval_query) if part).strip()
+    hits=rag_search(retrieval_query,k=6,subject=payload.subject,academic_class=payload.class_name,allow_cross_class_fallback=True) if payload.use_rag else []
+    query_terms={token for token in re.findall(r"[a-z0-9]{4,}", unicodedata.normalize("NFKD", retrieval_query).encode("ascii", "ignore").decode().lower())}
+    def relevant(hit: Any) -> bool:
+        haystack=unicodedata.normalize("NFKD", f"{hit.text} {hit.lesson or ''} {hit.competency or ''}").encode("ascii", "ignore").decode().lower()
+        return not query_terms or sum(term in haystack for term in query_terms) >= min(2, len(query_terms))
+    hits=[hit for hit in hits if relevant(hit)][:4]
     web_hits = []
-    if payload.allow_web_research and (not hits or hits[0].score < 0.20):
+    if payload.allow_web_research and (payload.learner_question or not hits or hits[0].score < 0.45):
         agent = WebResearchAgent()
         if agent.configured:
-            web_hits = agent.search(f"{payload.subject} {payload.class_name} {payload.instruction}", k=3)
+            web_hits = agent.search(research_query, k=4, allow_general=bool(payload.learner_question))
+    settings = get_settings()
+    gemini_result = None
+    if payload.allow_web_research and settings.gemini_api_key and (not hits or hits[0].score < 0.45):
+        try:
+            gemini_result = research_with_gemini(
+                settings,
+                f"{payload.subject}, niveau {payload.class_name}: {research_query}",
+                ALLOWED_DOMAINS,
+            )
+        except httpx.HTTPError:
+            gemini_result = None
     rag_context="\n\n".join(f"[{i+1}] {h.text}\nSource: {h.source}" for i,h in enumerate(hits))
     web_context = "\n\n".join(f"[WEB {i+1}] {h.excerpt}\nSource: {h.title} — {h.url}" for i,h in enumerate(web_hits))
     source_ids = [h.document_id for h in hits]
-    cached = tutor_cache.get(payload.class_name, payload.subject, payload.instruction, source_ids)
+    gemini_context = f"[GEMINI + GOOGLE SEARCH]\n{gemini_result.text}" if gemini_result and gemini_result.text else ""
+    cache_query=f"{payload.session_topic or ''} | {retrieval_query}"
+    cached = tutor_cache.get(payload.class_name, payload.subject, cache_query, source_ids)
     if cached is not None:
         return cached
     # Le service du petit modèle limite volontairement le contexte à 4 000
     # caractères. Les chunks PDF peuvent être longs : conserver le début des
     # passages les mieux classés plutôt que provoquer une erreur Pydantic 422.
-    context="\n\n".join(x for x in (payload.context,rag_context,web_context) if x)[:4000]
+    session_context=(f"[COURS ACTUEL — SUJET VERROUILLÉ: {payload.session_topic or payload.subject}]\n{payload.session_context}" if payload.session_context else "")
+    # Pendant une leçon ouverte, le plan validé est l'autorité pédagogique.
+    # Des anciens chunks peuvent être mal étiquetés (ex. probabilités dans une
+    # leçon de géométrie) : ils ne doivent jamais contaminer la réponse. Le RAG
+    # et le Web restent utilisés quand aucune matière de session n'est fournie.
+    external_context = "" if payload.learner_question and payload.session_context else "\n\n".join(
+        x for x in (rag_context, web_context, gemini_context) if x
+    )
+    context="\n\n".join(x for x in (session_context,payload.context,external_context) if x)[:12000]
     try:
-        settings = get_settings()
-        model_payload = {"instruction":payload.instruction,"context":context,"class_name":payload.class_name,"subject":payload.subject,"max_new_tokens":payload.max_new_tokens}
+        exact_instruction=(
+            f"COURS ACTUEL: {payload.session_topic or payload.subject}\nQUESTION EXACTE DE L'APPRENANT: {retrieval_query}\n"
+            "Réponds directement dans le cadre exclusif du cours actuel. Ignore tout passage hors sujet. "
+            "Si une démonstration est utile, écris DONNÉES, PROPRIÉTÉ, puis chaque CALCUL sur une ligne."
+        ) if payload.learner_question else payload.instruction
+        model_payload = {"instruction":exact_instruction,"context":context,"class_name":payload.class_name,"subject":payload.subject,"max_new_tokens":payload.max_new_tokens}
         if settings.openai_api_key and settings.llm_provider in {"hybrid", "openai"}:
-            result = generate_openai(settings, model_payload)
+            try:
+                result = generate_openai(settings, model_payload)
+            except (httpx.HTTPError, RuntimeError) as openai_exc:
+                # Un quota OpenAI épuisé ne doit pas court-circuiter le LoRA local.
+                # Le LoRA 0.5B est conservé comme preuve technique mais sa sortie
+                # n'est pas assez fiable pour répondre seul à un apprenant.
+                raise openai_exc
         else:
-            result = _generate_with_teacher(model_payload)
+            if payload.learner_question:
+                raise RuntimeError("Aucun modèle de raisonnement pédagogique fiable disponible")
+            result = _generate_with_teacher({**model_payload, "context":context[:4000]})
     except (HTTPException, httpx.HTTPError, RuntimeError) as exc:
         # Le modèle CPU peut être trop lent, ou l'API OpenAI peut répondre en
         # erreur (429 quota/rate-limit, 5xx, timeout réseau) : ces deux cas
@@ -127,10 +173,13 @@ def generate_tutor(payload:TutorGenerateRequest)->dict[str,Any]:
             return re.sub(r"[^a-z0-9=]+", " ", value)
 
         stopwords = {"avec", "dans", "pour", "cours", "resume", "fais", "donne", "cette", "notion", "eleve", "trois", "idees", "question"}
-        query_tokens = {token for token in normalize(payload.instruction).split() if len(token) > 2 and token not in stopwords}
+        query_tokens = {token for token in normalize(retrieval_query).split() if len(token) > 2 and token not in stopwords}
         candidates: list[tuple[float, str]] = []
-        for hit in hits:
-            clean = re.sub(r"\s+", " ", hit.text).strip()
+        evidence_texts = [payload.session_context] if payload.session_context else [hit.text for hit in hits]
+        if not payload.session_context:
+            evidence_texts.extend(hit.excerpt for hit in web_hits)
+        for evidence in evidence_texts:
+            clean = re.sub(r"\s+", " ", evidence).strip()
             for sentence in re.split(r"(?<=[.!?])\s+|\s*[•▪]\s*", clean):
                 sentence = sentence.replace("\uf0b7", "").strip(" -–—|{}")
                 if not 6 <= len(sentence) <= 280:
@@ -158,16 +207,29 @@ def generate_tutor(payload:TutorGenerateRequest)->dict[str,Any]:
         calculation = "\n\nDémonstration au tableau\n" + "\n".join(f"{i}. {step}" for i, step in enumerate(board_steps, 1)) if board_steps else ""
         result = {
             "mode": "grounded_extractive",
-            "answer": f"Essentiel à retenir — {payload.subject}\n\n{essentials}{calculation}\n\nQuestion de vérification : quelle idée principale peux-tu reformuler avec tes propres mots ?",
+            "answer": (
+                f"Réponse dans le cours — {payload.session_topic or payload.subject}\n\n"
+                f"Question : {retrieval_query}\n\n{essentials}{calculation}\n\n"
+                "Vérification : reformule cette réponse avec tes propres mots."
+            ) if payload.learner_question else f"Essentiel à retenir — {payload.subject}\n\n{essentials}{calculation}\n\nQuestion de vérification : quelle idée principale peux-tu reformuler avec tes propres mots ?",
             "latency_seconds": None,
             "warning": detail,
         }
     result["sources"]=[{"document_id":h.document_id,"title":h.source,"url":h.source_url,"score":h.score,"official_status":h.official_status,"validation_status":h.validation_status} for h in hits]
     result["sources"].extend({"document_id":None,"title":h.title,"url":h.url,"score":None,"official_status":h.official_status,"validation_status":"web_unverified"} for h in web_hits)
+    if gemini_result:
+        result["sources"].extend(gemini_result.sources)
     result["rag_used"]=bool(hits)
     result["web_research_used"]=bool(web_hits)
+    result["gemini_grounding_used"]=bool(gemini_result)
+    result["pipeline"]={
+        "retrieval":"hybrid_local" if hits else "none",
+        "web":"serpapi" if web_hits else "none",
+        "research_model":gemini_result.model if gemini_result else "none",
+        "reasoning_model":result.get("model") or result.get("mode", "grounded-extractive"),
+    }
     result["cache_hit"] = False
-    tutor_cache.put(payload.class_name, payload.subject, payload.instruction, source_ids, result)
+    tutor_cache.put(payload.class_name, payload.subject, cache_query, source_ids, result)
     return result
 
 

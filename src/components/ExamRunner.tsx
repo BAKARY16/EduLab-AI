@@ -165,7 +165,7 @@ export default function ExamRunner({ examKey }: { examKey: string }) {
           <button onClick={() => start("examen")} className="rounded-2xl border-2 border-night-900/10 bg-white p-6 text-left transition hover:-translate-y-0.5 hover:border-amber-edu">
             <Timer className="h-8 w-8 text-amber-edu" />
             <h3 className="mt-3 text-lg font-bold text-night-900">Mode examen chronométré</h3>
-            <p className="mt-1 text-sm text-night-800/70">Conditions réelles : chrono, feedback à la fin, analyse complète.</p>
+            <p className="mt-1 text-sm text-night-800/70">Chronométrage continu, réponses masquées pendant l’épreuve et bilan à la fin.</p>
           </button>
         </div>
       </div>

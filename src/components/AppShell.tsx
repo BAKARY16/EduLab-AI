@@ -2,7 +2,7 @@
 import { useState,type ReactNode,type ComponentType } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard,BookOpen,FlaskConical,PencilRuler,GraduationCap,LineChart,User,Atom,Menu,X,LogOut,ChevronRight,Bot,Search,Bell } from "lucide-react";
+import { LayoutDashboard,BookOpen,FlaskConical,PencilRuler,GraduationCap,LineChart,User,Atom,Menu,X,LogOut,ChevronRight,Bot } from "lucide-react";
 import { logoutAction } from "@/app/actions";
 
 type NavItem={href:string;label:string;icon:ComponentType<{className?:string}>};
@@ -14,6 +14,7 @@ const STUDENT_NAV:NavItem[]=[
 ];
 export function AppShell({user,nav,children}:{user:{name:string;email:string;role:string};nav:NavItem[];accent?:string;children:ReactNode}){
  const [open,setOpen]=useState(false);const pathname=usePathname();
+ const current=nav.find(item=>pathname===item.href||(item.href!=="/app"&&pathname.startsWith(item.href)))||nav[0];
  return <div className="min-h-screen bg-[#f7f5ef]">
   <aside className={`fixed inset-y-0 left-0 z-50 w-[17rem] transform border-r border-[#dfe5dc] bg-[#fbfaf5] text-night-900 transition-transform duration-300 lg:translate-x-0 ${open?"translate-x-0":"-translate-x-full"}`}>
    <div className="flex h-full flex-col"><div className="flex items-center justify-between px-6 py-6"><Link href="/app" className="flex items-center gap-2.5"><span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#175c44] text-white shadow-sm"><Atom className="h-5 w-5"/></span><span className="text-lg font-bold tracking-tight">EduLab<span className="text-[#267457]"> AI</span></span></Link><button aria-label="Fermer le menu" onClick={()=>setOpen(false)} className="lg:hidden"><X className="h-5 w-5"/></button></div>
@@ -23,7 +24,7 @@ export function AppShell({user,nav,children}:{user:{name:string;email:string;rol
   </aside>
   {open&&<div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm lg:hidden" onClick={()=>setOpen(false)}/>}
   <div className="lg:pl-[17rem]"><header className="sticky top-0 z-30 flex items-center gap-3 border-b border-[#e2e6df] bg-[#f7f5ef]/90 px-5 py-3.5 backdrop-blur lg:hidden"><button aria-label="Ouvrir le menu" onClick={()=>setOpen(true)}><Menu className="h-6 w-6"/></button><span className="flex items-center gap-2 font-bold"><span className="grid h-8 w-8 place-items-center rounded-xl bg-[#175c44] text-white"><Atom className="h-4 w-4"/></span>EduLab <span className="text-[#267457]">AI</span></span></header>
-   <header className="hidden h-[4.75rem] items-center justify-between border-b border-[#e2e6df] bg-[#f7f5ef]/90 px-8 backdrop-blur lg:flex"><div className="flex w-full max-w-md items-center gap-3 rounded-2xl border border-[#dde3db] bg-white px-4 py-2.5 text-night-800/40"><Search className="h-4 w-4"/><span className="text-sm">Rechercher un cours, une notion…</span></div><div className="flex items-center gap-3"><button aria-label="Notifications" className="grid h-10 w-10 place-items-center rounded-xl border border-[#dde3db] bg-white text-night-800/60"><Bell className="h-4 w-4"/></button><span className="rounded-full bg-[#e7f0e7] px-3 py-1.5 text-xs font-semibold text-[#175c44]">{user.role==="student"?"Apprenant":user.role==="teacher"?"Enseignant":"Administrateur"}</span></div></header>
+   <header className="hidden h-[4.75rem] items-center justify-between border-b border-[#e2e6df] bg-[#f7f5ef]/90 px-8 backdrop-blur lg:flex"><div><p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#175c44]/65">Espace pédagogique</p><p className="mt-0.5 text-lg font-semibold text-night-900">{current?.label||"EduLab AI"}</p></div><div className="flex items-center gap-3"><div className="text-right"><p className="text-sm font-semibold text-night-900">{user.name}</p><p className="text-xs text-night-800/45">{user.role==="student"?"Apprenant":user.role==="teacher"?"Enseignant":"Administrateur"}</p></div><span className="grid h-10 w-10 place-items-center rounded-full bg-[#175c44] text-sm font-bold text-white">{user.name.charAt(0).toUpperCase()}</span></div></header>
    <main className="min-h-[calc(100vh-4.75rem)]"><div className="mx-auto max-w-[1500px] px-5 py-7 sm:px-8 lg:py-8">{children}</div></main>
   </div>
  </div>

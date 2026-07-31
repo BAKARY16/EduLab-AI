@@ -26,6 +26,7 @@ pytest-cache-files-*/
 .claude/
 .DS_Store
 Thumbs.db
+~$*
 
 # Uploaded or generated private data
 data/raw/manual_uploads/*

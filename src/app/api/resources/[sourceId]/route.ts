@@ -12,9 +12,12 @@ export async function GET(_request: Request, context: { params: Promise<{ source
     return NextResponse.json({ error: "Ressource indisponible" }, { status: 404 });
   }
 
-  const workspace = path.resolve(/* turbopackIgnore: true */ process.cwd());
-  const filePath = path.resolve(workspace, resource.localPath);
-  if (!filePath.startsWith(`${workspace}${path.sep}`)) {
+  // Keep the filesystem trace scoped to the official curriculum directory.
+  // Resolving against the whole workspace made Next.js scan unrelated cache folders.
+  const curriculumRoot = path.join(process.cwd(), "data", "raw", "dpfc");
+  const relativePath = resource.localPath.replace(/^data[\\/]raw[\\/]dpfc[\\/]/, "");
+  const filePath = path.resolve(curriculumRoot, relativePath);
+  if (!filePath.startsWith(`${curriculumRoot}${path.sep}`)) {
     return NextResponse.json({ error: "Chemin de ressource invalide" }, { status: 400 });
   }
 

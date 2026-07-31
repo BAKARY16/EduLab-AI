@@ -22,7 +22,10 @@ export async function POST(request: NextRequest) {
     });
     const result = await response.json();
     return NextResponse.json(result, { status: response.status });
-  } catch {
-    return NextResponse.json({ detail: "Le modèle local n'est pas démarré. Lancez le service teacher-model." }, { status: 503 });
+  } catch (error) {
+    const detail = error instanceof Error && error.name === "TimeoutError"
+      ? "Le moteur pédagogique met trop de temps à répondre. Réessayez dans quelques secondes."
+      : "L’API pédagogique n’est pas joignable sur le port 8000. Le RAG et les fournisseurs IA ne peuvent pas répondre.";
+    return NextResponse.json({ detail, service: "edulab-api", expected_url: BACKEND_URL }, { status: 503 });
   }
 }

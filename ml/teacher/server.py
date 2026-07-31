@@ -1,6 +1,6 @@
 """HTTP inference service loading the immutable base plus trained LoRA."""
 from __future__ import annotations
-import json, os, sys, time
+import asyncio, json, os, sys, time
 from contextlib import asynccontextmanager
 from pathlib import Path
 import torch
@@ -9,8 +9,10 @@ from pydantic import BaseModel, Field
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-ROOT=Path(os.getenv("EDULAB_ROOT","/workspace")); MODEL_ID="Qwen/Qwen2.5-0.5B-Instruct"
-ADAPTER=ROOT/"models/edulab-teacher-qwen-0.5b-lora"; state={}
+ROOT=Path(os.getenv("EDULAB_ROOT","/workspace")); MODEL_ID=os.getenv("TEACHER_BASE_MODEL", "Qwen/Qwen2.5-0.5B-Instruct")
+adapter_setting=Path(os.getenv("TEACHER_ADAPTER_PATH","models/edulab-teacher-qwen-0.5b-lora"))
+ADAPTER=adapter_setting if adapter_setting.is_absolute() else ROOT/adapter_setting
+state={}
 
 sys.path.insert(0, str(ROOT))
 from ml.teacher.context_builder import build_teacher_context
@@ -23,7 +25,22 @@ class GenerateRequest(BaseModel):
 async def lifespan(app):
     if not (ADAPTER/"adapter_model.safetensors").exists(): raise RuntimeError("Trained LoRA adapter missing")
     tok=AutoTokenizer.from_pretrained(ADAPTER/"tokenizer")
-    base=AutoModelForCausalLM.from_pretrained(MODEL_ID,torch_dtype=torch.float32,low_cpu_mem_usage=True)
+    # Hugging Face reprend les blobs incomplets. En cas de connexion instable,
+    # conserver le serveur en phase de démarrage au lieu de fermer le terminal.
+    base = None
+    retries = max(1, int(os.getenv("HF_DOWNLOAD_RETRIES", "12")))
+    for attempt in range(1, retries + 1):
+        try:
+            base=AutoModelForCausalLM.from_pretrained(MODEL_ID,torch_dtype=torch.float32,low_cpu_mem_usage=True)
+            break
+        except Exception as exc:
+            if attempt == retries:
+                raise
+            delay = min(60, attempt * 5)
+            print(f"Téléchargement interrompu ({type(exc).__name__}). Reprise {attempt}/{retries} dans {delay}s...", flush=True)
+            await asyncio.sleep(delay)
+    if base is None:
+        raise RuntimeError("Base model unavailable")
     model=PeftModel.from_pretrained(base,ADAPTER); model.eval(); state.update(tokenizer=tok,model=model)
     yield
     state.clear()
